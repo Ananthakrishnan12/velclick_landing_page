@@ -195,3 +195,4 @@ export default function VideoPlayerModal({ project, onClose, onEnquire }) {
     </div>
   );
 }
+

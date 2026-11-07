@@ -44,14 +44,31 @@ export default function PortfolioModal({ project, onClose, onEnquire }) {
 
         {/* Modal Body */}
         <div className="p-6 overflow-y-auto space-y-6">
-          {/* Demo Notice Banner */}
-          <div className="p-3.5 rounded-2xl bg-amber-50 dark:bg-amber-950/40 border border-amber-200/70 dark:border-amber-800/60 flex items-start gap-3">
-            <Sparkles className="w-5 h-5 text-amber-600 dark:text-amber-400 shrink-0 mt-0.5" />
-            <div className="text-xs text-amber-900 dark:text-amber-200 leading-relaxed">
-              <span className="font-bold">Portfolio Demonstration Asset: </span>
-              This case study illustrates VelClick Agency's creative methodology and technical delivery standards. We deliver custom, tailored assets for every business client.
+          {/* If the project has an actual dashboard screenshot */}
+          {project.image ? (
+            <div className="rounded-2xl overflow-hidden border border-brand-border dark:border-neutral-800 bg-neutral-950 p-3 shadow-md">
+              <div className="flex items-center justify-between text-xs text-neutral-400 mb-2 px-1">
+                <span className="font-semibold text-brand-gold">Campaign Performance Report</span>
+                <span className="text-[11px] text-neutral-400">Meta Ads Manager</span>
+              </div>
+              <div className="bg-white rounded-xl overflow-hidden p-2 flex items-center justify-center border border-neutral-800">
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="w-full h-auto object-contain"
+                />
+              </div>
             </div>
-          </div>
+          ) : (
+            /* Demo Notice Banner for other mockups */
+            <div className="p-3.5 rounded-2xl bg-amber-50 dark:bg-amber-950/40 border border-amber-200/70 dark:border-amber-800/60 flex items-start gap-3">
+              <Sparkles className="w-5 h-5 text-amber-600 dark:text-amber-400 shrink-0 mt-0.5" />
+              <div className="text-xs text-amber-900 dark:text-amber-200 leading-relaxed">
+                <span className="font-bold">Portfolio Demonstration Asset: </span>
+                This case study illustrates VelClick Agency's creative methodology and technical delivery standards. We deliver custom, tailored assets for every business client.
+              </div>
+            </div>
+          )}
 
           {/* Description */}
           <div>
@@ -67,7 +84,7 @@ export default function PortfolioModal({ project, onClose, onEnquire }) {
           {project.deliverables && (
             <div>
               <h4 className="text-xs font-bold uppercase tracking-wider text-neutral-400 dark:text-neutral-500 mb-2">
-                Included Deliverables
+                Included Deliverables & Performance
               </h4>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                 {project.deliverables.map((item, idx) => (
@@ -107,7 +124,7 @@ export default function PortfolioModal({ project, onClose, onEnquire }) {
         <div className="p-6 border-t border-brand-border dark:border-neutral-800 bg-brand-ivory/30 dark:bg-neutral-900/60 flex flex-col sm:flex-row items-center justify-between gap-3">
           <a
             href={`https://wa.me/916379553564?text=${encodeURIComponent(
-              `Hi VelClick Agency! I saw your portfolio work on "${project.title}" and would like to discuss something similar for my business.`
+              `Hi VelClick Agency! I saw your Meta Ads campaign performance on "${project.title}" and would like to discuss a similar campaign for my business.`
             )}`}
             target="_blank"
             rel="noopener noreferrer"
