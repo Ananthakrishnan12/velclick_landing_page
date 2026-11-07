@@ -1,0 +1,93 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-white: #FFFFFF;
+  --color-ivory: #F5F1E8;
+  --color-black: #111111;
+  --color-gold: #D6A536;
+  --color-light-gold: #E8C875;
+  --color-charcoal: #555555;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  color: #111111;
+  background-color: #FFFFFF;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Outfit', 'Plus Jakarta Sans', sans-serif;
+  letter-spacing: -0.02em;
+}
+
+/* Metallic Gold Gradient Text */
+.gold-gradient-text {
+  background: linear-gradient(100deg, #A97819 0%, #F5D98B 50%, #C18A25 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+/* Gold Gradient Button & Backgrounds */
+.bg-gold-gradient {
+  background: linear-gradient(100deg, #A97819 0%, #F5D98B 50%, #C18A25 100%);
+}
+
+.bg-gold-gradient-hover:hover {
+  background: linear-gradient(100deg, #B98829 0%, #FCE3A1 50%, #D19A35 100%);
+}
+
+/* Subtle Gold Borders */
+.border-gold-subtle {
+  border-color: rgba(214, 165, 54, 0.25);
+}
+
+.border-gold-hover:hover {
+  border-color: rgba(214, 165, 54, 0.7);
+}
+
+/* Dot Pattern & Decorative Grids */
+.bg-gold-dots {
+  background-image: radial-gradient(rgba(214, 165, 54, 0.18) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 9px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F5F1E8;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #D6A536;
+  border-radius: 9999px;
+  border: 2px solid #F5F1E8;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #A97819;
+}
+
+/* Accessibility: Respect Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

@@ -1,0 +1,408 @@
+import React, { useState } from 'react';
+import { useForm } from 'react-hook-form';
+import {
+  Send,
+  MessageCircle,
+  Mail,
+  Phone,
+  MapPin,
+  CheckCircle2,
+  AlertCircle,
+  Clock,
+  Sparkles,
+} from 'lucide-react';
+import SectionHeading from '../components/SectionHeading';
+import Button from '../components/Button';
+
+export default function Contact({ initialService = '', initialPlan = null }) {
+  const [submissionStatus, setSubmissionStatus] = useState(null); // null | 'whatsapp_redirect' | 'sent' | 'error'
+  const [preparedEnquiry, setPreparedEnquiry] = useState(null);
+
+  const {
+    register,
+    handleSubmit,
+    setValue,
+    reset,
+    formState: { errors, isSubmitting },
+  } = useForm({
+    defaultValues: {
+      name: '',
+      businessName: '',
+      email: '',
+      phone: '',
+      serviceRequired: initialService || 'Meta & Instagram Ads',
+      projectDetails: initialPlan ? `I am interested in the ${initialPlan.name} package.` : '',
+    },
+  });
+
+  // Keep synced if parent changes initialService
+  React.useEffect(() => {
+    if (initialService) {
+      const serviceMapping = {
+        'ai-video-creation': 'AI Video Creation',
+        'meta-instagram-ads': 'Meta & Instagram Ads',
+        'portfolio-websites': 'Portfolio Websites',
+        'google-business-profile': 'Google Business Profile',
+      };
+      setValue('serviceRequired', serviceMapping[initialService] || initialService);
+    }
+  }, [initialService, setValue]);
+
+  React.useEffect(() => {
+    if (initialPlan) {
+      setValue(
+        'projectDetails',
+        `Interested in the ${initialPlan.name} package. Key requirement: `
+      );
+    }
+  }, [initialPlan, setValue]);
+
+  const onSubmit = async (data) => {
+    try {
+      // Format details for direct WhatsApp delivery
+      const formattedMessage =
+        `*New Enquiry - VelClick Agency*\n\n` +
+        `*Name:* ${data.name}\n` +
+        `*Business:* ${data.businessName}\n` +
+        `*Email:* ${data.email}\n` +
+        `*Phone:* ${data.phone}\n` +
+        `*Service Required:* ${data.serviceRequired}\n` +
+        `*Project Details:* ${data.projectDetails}\n\n` +
+        `_Sent via velclickagency.com_`;
+
+      const whatsappUrl = `https://wa.me/916379553564?text=${encodeURIComponent(
+        formattedMessage
+      )}`;
+
+      setPreparedEnquiry({
+        ...data,
+        whatsappUrl,
+      });
+
+      setSubmissionStatus('ready_to_send');
+
+      // Seamlessly open WhatsApp window
+      window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+    } catch (err) {
+      setSubmissionStatus('error');
+    }
+  };
+
+  return (
+    <section
+      id="contact"
+      className="bg-brand-white py-20 sm:py-28 relative overflow-hidden"
+    >
+      {/* Background Decorative Gold Accents */}
+      <div className="absolute top-0 left-1/4 w-96 h-96 bg-brand-gold/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-10 right-0 w-80 h-80 bg-brand-light-gold/15 rounded-full blur-3xl pointer-events-none" />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <SectionHeading
+          badge="Get in Touch"
+          title="Let's Click, Grow & Succeed Together!"
+          highlightWord="Grow & Succeed"
+          description="Have a business idea or need help growing online? Let's discuss how VelClick Agency can help."
+          className="mb-14 sm:mb-16"
+        />
+
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
+          
+          {/* Left Column: Direct Contact Info & Working Channels */}
+          <div className="lg:col-span-5 space-y-6">
+            <div className="bg-brand-ivory rounded-3xl p-7 sm:p-9 border border-brand-gold/30 shadow-card-soft space-y-7">
+              <div>
+                <span className="text-xs font-bold uppercase tracking-wider text-brand-gold">
+                  Direct Inquiries
+                </span>
+                <h3 className="text-xl sm:text-2xl font-bold text-brand-black mt-1">
+                  We are ready to assist your growth.
+                </h3>
+                <p className="text-xs sm:text-sm text-brand-charcoal mt-2 leading-relaxed">
+                  Connect with our strategy team directly for prompt responses, tailored proposals, and free marketing consultations.
+                </p>
+              </div>
+
+              {/* Direct Channels */}
+              <div className="space-y-4">
+                {/* WhatsApp */}
+                <a
+                  href="https://wa.me/916379553564"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-4 p-4 rounded-2xl bg-brand-white border border-brand-border/80 hover:border-brand-gold transition-all shadow-xs group"
+                >
+                  <div className="w-11 h-11 rounded-xl bg-emerald-50 border border-emerald-200 flex items-center justify-center text-emerald-600 shrink-0 group-hover:scale-105 transition-transform">
+                    <MessageCircle className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <span className="text-[11px] font-semibold text-neutral-400 uppercase tracking-wider block">
+                      WhatsApp / Phone
+                    </span>
+                    <span className="text-sm sm:text-base font-bold text-brand-black group-hover:text-brand-gold transition-colors">
+                      +91 63795 53564
+                    </span>
+                  </div>
+                </a>
+
+                {/* Email */}
+                <a
+                  href="mailto:velclickagency@gmail.com"
+                  className="flex items-center gap-4 p-4 rounded-2xl bg-brand-white border border-brand-border/80 hover:border-brand-gold transition-all shadow-xs group"
+                >
+                  <div className="w-11 h-11 rounded-xl bg-brand-ivory border border-brand-gold/40 flex items-center justify-center text-brand-gold shrink-0 group-hover:scale-105 transition-transform">
+                    <Mail className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <span className="text-[11px] font-semibold text-neutral-400 uppercase tracking-wider block">
+                      Email Address
+                    </span>
+                    <span className="text-sm sm:text-base font-bold text-brand-black group-hover:text-brand-gold transition-colors break-all">
+                      velclickagency@gmail.com
+                    </span>
+                  </div>
+                </a>
+
+                {/* Location */}
+                <div className="flex items-center gap-4 p-4 rounded-2xl bg-brand-white border border-brand-border/80 shadow-xs">
+                  <div className="w-11 h-11 rounded-xl bg-amber-50 border border-amber-200 flex items-center justify-center text-brand-gold shrink-0">
+                    <MapPin className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <span className="text-[11px] font-semibold text-neutral-400 uppercase tracking-wider block">
+                      Agency Headquarters
+                    </span>
+                    <span className="text-sm font-bold text-brand-black">
+                      Chennai, Tamil Nadu, India
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Working Hours & SLA */}
+              <div className="p-4 rounded-2xl bg-brand-white/80 border border-brand-gold/20 flex items-center gap-3 text-xs text-brand-charcoal">
+                <Clock className="w-4 h-4 text-brand-gold shrink-0" />
+                <span>Rapid response within 2 hours during business hours (Mon – Sat).</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Right Column: Contact Form */}
+          <div className="lg:col-span-7">
+            <div className="bg-brand-white rounded-3xl p-7 sm:p-9 border border-brand-border shadow-card-soft">
+              <div className="mb-6">
+                <h3 className="text-xl sm:text-2xl font-bold text-brand-black">
+                  Send Your Project Enquiry
+                </h3>
+                <p className="text-xs sm:text-sm text-brand-charcoal mt-1">
+                  Fill in your details below and our team will get back to you with a tailored roadmap.
+                </p>
+              </div>
+
+              {/* Status Banner when enquiry prepared */}
+              {submissionStatus === 'ready_to_send' && preparedEnquiry && (
+                <div className="mb-6 p-4 rounded-2xl bg-emerald-50 border border-emerald-300 text-xs text-emerald-900 space-y-2">
+                  <div className="flex items-center gap-2 font-bold text-sm text-emerald-800">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-600" />
+                    <span>Enquiry Ready to Dispatch!</span>
+                  </div>
+                  <p>
+                    Your enquiry details have been formatted and directed to our official WhatsApp channel (+91 63795 53564). If your browser blocked popups, please click below:
+                  </p>
+                  <div className="pt-2 flex flex-wrap gap-2">
+                    <a
+                      href={preparedEnquiry.whatsappUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-emerald-600 hover:bg-emerald-700 text-white font-semibold shadow-xs"
+                    >
+                      <MessageCircle className="w-3.5 h-3.5" />
+                      <span>Confirm & Send on WhatsApp</span>
+                    </a>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        reset();
+                        setSubmissionStatus(null);
+                      }}
+                      className="px-3 py-2 rounded-full bg-white text-emerald-900 border border-emerald-300 hover:bg-emerald-100 font-medium"
+                    >
+                      Reset Form
+                    </button>
+                  </div>
+                </div>
+              )}
+
+              <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+                {/* Row 1: Name and Business Name */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-xs font-bold uppercase tracking-wider text-brand-black mb-1.5">
+                      Your Full Name <span className="text-red-500">*</span>
+                    </label>
+                    <input
+                      type="text"
+                      placeholder="e.g. Rahul Sharma"
+                      className={`w-full px-4 py-3 rounded-xl border text-sm text-brand-black placeholder:text-neutral-400 focus:outline-none focus:ring-2 focus:ring-brand-gold transition-all ${
+                        errors.name ? 'border-red-400 bg-red-50/30' : 'border-neutral-200 bg-brand-white'
+                      }`}
+                      {...register('name', { required: 'Please enter your full name.' })}
+                    />
+                    {errors.name && (
+                      <p className="mt-1 text-xs text-red-500 flex items-center gap-1">
+                        <AlertCircle className="w-3 h-3" /> {errors.name.message}
+                      </p>
+                    )}
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-bold uppercase tracking-wider text-brand-black mb-1.5">
+                      Business / Company Name <span className="text-red-500">*</span>
+                    </label>
+                    <input
+                      type="text"
+                      placeholder="e.g. Apex Health Clinic"
+                      className={`w-full px-4 py-3 rounded-xl border text-sm text-brand-black placeholder:text-neutral-400 focus:outline-none focus:ring-2 focus:ring-brand-gold transition-all ${
+                        errors.businessName ? 'border-red-400 bg-red-50/30' : 'border-neutral-200 bg-brand-white'
+                      }`}
+                      {...register('businessName', { required: 'Please enter your business name.' })}
+                    />
+                    {errors.businessName && (
+                      <p className="mt-1 text-xs text-red-500 flex items-center gap-1">
+                        <AlertCircle className="w-3 h-3" /> {errors.businessName.message}
+                      </p>
+                    )}
+                  </div>
+                </div>
+
+                {/* Row 2: Email and Phone */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-xs font-bold uppercase tracking-wider text-brand-black mb-1.5">
+                      Email Address <span className="text-red-500">*</span>
+                    </label>
+                    <input
+                      type="email"
+                      placeholder="rahul@company.com"
+                      className={`w-full px-4 py-3 rounded-xl border text-sm text-brand-black placeholder:text-neutral-400 focus:outline-none focus:ring-2 focus:ring-brand-gold transition-all ${
+                        errors.email ? 'border-red-400 bg-red-50/30' : 'border-neutral-200 bg-brand-white'
+                      }`}
+                      {...register('email', {
+                        required: 'Please enter your email address.',
+                        pattern: {
+                          value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                          message: 'Please enter a valid email address.',
+                        },
+                      })}
+                    />
+                    {errors.email && (
+                      <p className="mt-1 text-xs text-red-500 flex items-center gap-1">
+                        <AlertCircle className="w-3 h-3" /> {errors.email.message}
+                      </p>
+                    )}
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-bold uppercase tracking-wider text-brand-black mb-1.5">
+                      Phone / WhatsApp Number <span className="text-red-500">*</span>
+                    </label>
+                    <input
+                      type="tel"
+                      placeholder="+91 98765 43210"
+                      className={`w-full px-4 py-3 rounded-xl border text-sm text-brand-black placeholder:text-neutral-400 focus:outline-none focus:ring-2 focus:ring-brand-gold transition-all ${
+                        errors.phone ? 'border-red-400 bg-red-50/30' : 'border-neutral-200 bg-brand-white'
+                      }`}
+                      {...register('phone', {
+                        required: 'Please enter your phone number.',
+                        minLength: {
+                          value: 8,
+                          message: 'Please enter a valid phone number (min 8 digits).',
+                        },
+                      })}
+                    />
+                    {errors.phone && (
+                      <p className="mt-1 text-xs text-red-500 flex items-center gap-1">
+                        <AlertCircle className="w-3 h-3" /> {errors.phone.message}
+                      </p>
+                    )}
+                  </div>
+                </div>
+
+                {/* Service Required */}
+                <div>
+                  <label className="block text-xs font-bold uppercase tracking-wider text-brand-black mb-1.5">
+                    Service Required <span className="text-red-500">*</span>
+                  </label>
+                  <select
+                    className="w-full px-4 py-3 rounded-xl border border-neutral-200 bg-brand-white text-sm text-brand-black focus:outline-none focus:ring-2 focus:ring-brand-gold transition-all"
+                    {...register('serviceRequired', { required: 'Please select a service.' })}
+                  >
+                    <option value="AI Video Creation">AI Video Creation</option>
+                    <option value="Meta & Instagram Ads">Meta & Instagram Ads</option>
+                    <option value="Portfolio Websites">Portfolio & Landing Page Websites</option>
+                    <option value="Google Business Profile">Google Business Profile Optimization</option>
+                    <option value="Full Growth Package">Full Digital Growth Package (Combined)</option>
+                  </select>
+                </div>
+
+                {/* Project Details */}
+                <div>
+                  <label className="block text-xs font-bold uppercase tracking-wider text-brand-black mb-1.5">
+                    Project Details & Goals <span className="text-red-500">*</span>
+                  </label>
+                  <textarea
+                    rows={4}
+                    placeholder="Tell us about your target audience, current advertising, budget scale, or website requirements..."
+                    className={`w-full px-4 py-3 rounded-xl border text-sm text-brand-black placeholder:text-neutral-400 focus:outline-none focus:ring-2 focus:ring-brand-gold transition-all resize-y ${
+                      errors.projectDetails ? 'border-red-400 bg-red-50/30' : 'border-neutral-200 bg-brand-white'
+                    }`}
+                    {...register('projectDetails', {
+                      required: 'Please provide a short description of your project.',
+                      minLength: {
+                        value: 10,
+                        message: 'Please provide at least 10 characters describing your project.',
+                      },
+                    })}
+                  />
+                  {errors.projectDetails && (
+                    <p className="mt-1 text-xs text-red-500 flex items-center gap-1">
+                      <AlertCircle className="w-3 h-3" /> {errors.projectDetails.message}
+                    </p>
+                  )}
+                </div>
+
+                {/* Submit Button */}
+                <div className="pt-2">
+                  <Button
+                    type="submit"
+                    variant="primary"
+                    size="lg"
+                    icon={Send}
+                    disabled={isSubmitting}
+                    className="w-full justify-center shadow-gold-sm"
+                  >
+                    {isSubmitting ? 'Preparing Enquiry...' : 'Send Enquiry'}
+                  </Button>
+                </div>
+
+                {/* Direct Alternative */}
+                <div className="pt-3 text-center text-xs text-neutral-400">
+                  Prefer instant messaging?{' '}
+                  <a
+                    href="https://wa.me/916379553564"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-emerald-600 font-bold hover:underline inline-flex items-center gap-1"
+                  >
+                    <MessageCircle className="w-3.5 h-3.5 inline" />
+                    <span>Chat on WhatsApp (+91 63795 53564)</span>
+                  </a>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}

@@ -1,0 +1,102 @@
+import React from 'react';
+import { Eye, Sparkles, Video, Target, Layout, Palette } from 'lucide-react';
+import Button from './Button';
+
+const categoryIcons = {
+  'AI Video Advertisements': Video,
+  'Meta Ads Creatives': Target,
+  'Portfolio Websites': Layout,
+  'Promotional Designs': Palette,
+};
+
+export default function PortfolioCard({ project, onViewProject }) {
+  const Icon = categoryIcons[project.category] || Sparkles;
+
+  return (
+    <div className="group bg-brand-white rounded-3xl overflow-hidden border border-brand-border/80 shadow-card-soft hover:shadow-card-hover hover:border-brand-gold/60 transition-all duration-300 flex flex-col justify-between">
+      <div>
+        {/* Project Visual Thumbnail / Interactive Graphic */}
+        <div className="relative aspect-[16/10] bg-neutral-900 overflow-hidden flex items-center justify-center p-6">
+          {/* Subtle background glow */}
+          <div className="absolute inset-0 bg-gradient-to-br from-neutral-900 via-neutral-950 to-brand-black opacity-90" />
+          <div className="absolute -top-10 -right-10 w-40 h-40 bg-brand-gold/20 rounded-full blur-2xl" />
+
+          {/* Card Mockup Graphic */}
+          <div className="relative z-10 w-full h-full flex flex-col justify-between p-4 rounded-xl bg-neutral-900/90 border border-neutral-750 backdrop-blur-sm group-hover:scale-105 transition-transform duration-300">
+            <div className="flex items-center justify-between text-xs text-neutral-400">
+              <span className="flex items-center gap-1.5 text-brand-light-gold font-medium">
+                <Icon className="w-3.5 h-3.5" />
+                <span>{project.category}</span>
+              </span>
+              <span className="px-2 py-0.5 rounded-full bg-neutral-800 text-[10px] text-neutral-300 border border-neutral-700">
+                Demo
+              </span>
+            </div>
+
+            <div className="my-auto py-2">
+              <h4 className="text-base sm:text-lg font-bold text-brand-white leading-snug line-clamp-1">
+                {project.title}
+              </h4>
+              <p className="text-xs text-neutral-400 mt-1 line-clamp-2">
+                {project.description}
+              </p>
+            </div>
+
+            <div className="flex items-center gap-1.5 flex-wrap">
+              {project.tech?.slice(0, 3).map((t, idx) => (
+                <span
+                  key={idx}
+                  className="px-2 py-0.5 rounded bg-brand-gold/15 text-brand-light-gold text-[10px] font-medium"
+                >
+                  {t}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          {/* Hover Overlay */}
+          <div className="absolute inset-0 bg-brand-black/50 backdrop-blur-[2px] opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center z-20">
+            <button
+              onClick={() => onViewProject(project)}
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gold-gradient text-brand-black font-semibold text-xs shadow-lg hover:scale-105 active:scale-95 transition-all"
+            >
+              <Eye className="w-3.5 h-3.5" />
+              <span>Preview Demo</span>
+            </button>
+          </div>
+        </div>
+
+        {/* Card Body */}
+        <div className="p-6">
+          <div className="flex items-center gap-2 mb-2">
+            <span className="text-[11px] font-bold uppercase tracking-wider text-brand-gold">
+              {project.category}
+            </span>
+            <span className="w-1 h-1 rounded-full bg-neutral-300" />
+            <span className="text-[11px] text-neutral-400">{project.tag}</span>
+          </div>
+
+          <h3 className="text-lg font-bold text-brand-black mb-2 group-hover:text-brand-gold transition-colors">
+            {project.title}
+          </h3>
+
+          <p className="text-xs sm:text-sm text-brand-charcoal line-clamp-2 mb-4 leading-relaxed">
+            {project.description}
+          </p>
+        </div>
+      </div>
+
+      <div className="px-6 pb-6 pt-0">
+        <Button
+          onClick={() => onViewProject(project)}
+          variant="secondary"
+          size="sm"
+          icon={Eye}
+          className="w-full justify-center group-hover:border-brand-gold"
+        >
+          View Project
+        </Button>
+      </div>
+    </div>
+  );
+}
