@@ -19,8 +19,10 @@ export default {
         'brand-card': '#FFFFFF',
         'brand-dark': '#0B0B0B',
         'brand-dark-surface': '#141414',
-        'brand-dark-card': '#1B1B1B',
+        'brand-dark-card': '#181818',
         'brand-dark-border': '#282828',
+        'neutral-750': '#2D2D2D',
+        'neutral-850': '#1A1A1A',
       },
       backgroundImage: {
         'gold-gradient': 'linear-gradient(100deg, #A97819, #F5D98B, #C18A25)',

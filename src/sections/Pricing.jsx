@@ -31,7 +31,7 @@ export default function Pricing({ onSelectPlan }) {
         />
 
         {/* Pricing Notice */}
-        <div className="max-w-xl mx-auto mb-14 text-center p-3.5 rounded-2xl bg-brand-ivory dark:bg-neutral-850 border border-brand-gold/30 dark:border-brand-gold/40 text-xs text-brand-charcoal dark:text-neutral-300">
+        <div className="max-w-xl mx-auto mb-14 text-center p-3.5 rounded-2xl bg-brand-ivory dark:bg-neutral-900 border border-brand-gold/30 dark:border-brand-gold/40 text-xs text-brand-charcoal dark:text-neutral-300">
           <span className="font-bold text-brand-black dark:text-white">Transparent Scoping: </span>
           Final quotations are tailored based on your campaign scope, ad budget scale, and creative volume.
         </div>
@@ -46,8 +46,8 @@ export default function Pricing({ onSelectPlan }) {
                 key={plan.id}
                 className={`relative rounded-3xl p-8 sm:p-9 transition-all duration-300 flex flex-col justify-between ${
                   isPopular
-                    ? 'bg-brand-white dark:bg-brand-dark-card border-2 border-brand-gold shadow-gold-md dark:shadow-dark-card-hover scale-100 lg:-translate-y-2'
-                    : 'bg-brand-white dark:bg-brand-dark-card border border-brand-border/80 dark:border-neutral-800 shadow-card-soft dark:shadow-dark-card-soft hover:shadow-card-hover dark:hover:shadow-dark-card-hover hover:border-brand-gold/50'
+                    ? 'bg-brand-white dark:bg-neutral-900 border-2 border-brand-gold shadow-gold-md dark:shadow-dark-card-hover scale-100 lg:-translate-y-2'
+                    : 'bg-brand-white dark:bg-neutral-900 border border-brand-border/80 dark:border-neutral-800 shadow-card-soft dark:shadow-dark-card-soft hover:shadow-card-hover dark:hover:shadow-dark-card-hover hover:border-brand-gold/50'
                 }`}
               >
                 {/* Popular Ribbon */}
@@ -66,10 +66,10 @@ export default function Pricing({ onSelectPlan }) {
                         {plan.badge}
                       </span>
                     )}
-                    <h3 className="text-2xl font-extrabold text-brand-black dark:text-brand-white">
+                    <h3 className="text-2xl font-extrabold text-brand-black dark:text-white">
                       {plan.name}
                     </h3>
-                    <p className="text-xs text-brand-charcoal dark:text-neutral-400 mt-1 min-h-[32px]">
+                    <p className="text-xs text-brand-charcoal dark:text-neutral-300 mt-1 min-h-[32px]">
                       {plan.headline}
                     </p>
                   </div>
@@ -90,11 +90,11 @@ export default function Pricing({ onSelectPlan }) {
 
                   {/* Deliverables Checklist */}
                   <div className="space-y-3 mb-8">
-                    <p className="text-xs font-bold uppercase tracking-wider text-neutral-400 dark:text-neutral-500">
+                    <p className="text-xs font-bold uppercase tracking-wider text-neutral-400 dark:text-neutral-400">
                       Included Deliverables:
                     </p>
                     {plan.deliverables.map((item, idx) => (
-                      <div key={idx} className="flex items-start gap-2.5 text-xs sm:text-sm text-neutral-700 dark:text-neutral-300">
+                      <div key={idx} className="flex items-start gap-2.5 text-xs sm:text-sm text-neutral-700 dark:text-neutral-200">
                         <div className="w-4 h-4 rounded-full bg-brand-ivory dark:bg-neutral-800 border border-brand-gold/40 flex items-center justify-center shrink-0 mt-0.5 text-brand-gold">
                           <Check className="w-2.5 h-2.5 stroke-[3]" />
                         </div>

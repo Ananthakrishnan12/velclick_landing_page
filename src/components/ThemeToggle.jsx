@@ -10,7 +10,7 @@ export default function ThemeToggle({ theme, toggleTheme, className = '' }) {
       onClick={toggleTheme}
       className={`relative p-2 rounded-full border transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-brand-gold ${
         isDark
-          ? 'bg-neutral-800/90 border-brand-gold/40 text-brand-light-gold hover:bg-neutral-750 hover:border-brand-gold shadow-sm'
+          ? 'bg-neutral-800/90 border-brand-gold/40 text-brand-light-gold hover:bg-neutral-700 hover:border-brand-gold shadow-sm'
           : 'bg-brand-ivory border-brand-gold/30 text-brand-black hover:bg-amber-100/60 hover:text-brand-gold shadow-xs'
       } ${className}`}
       aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}

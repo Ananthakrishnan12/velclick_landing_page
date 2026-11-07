@@ -104,7 +104,7 @@ export default function Contact({ initialService = '', initialPlan = null }) {
           
           {/* Left Column: Direct Contact Info & Working Channels */}
           <div className="lg:col-span-5 space-y-6">
-            <div className="bg-brand-ivory dark:bg-brand-dark-card rounded-3xl p-7 sm:p-9 border border-brand-gold/30 dark:border-neutral-800 shadow-card-soft dark:shadow-dark-card-soft space-y-7">
+            <div className="bg-brand-ivory dark:bg-neutral-900 rounded-3xl p-7 sm:p-9 border border-brand-gold/30 dark:border-neutral-800 shadow-card-soft dark:shadow-dark-card-soft space-y-7">
               <div>
                 <span className="text-xs font-bold uppercase tracking-wider text-brand-gold">
                   Direct Inquiries
@@ -124,13 +124,13 @@ export default function Contact({ initialService = '', initialPlan = null }) {
                   href="https://wa.me/916379553564"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-4 p-4 rounded-2xl bg-brand-white dark:bg-neutral-850 border border-brand-border/80 dark:border-neutral-750 hover:border-brand-gold dark:hover:border-brand-gold transition-all shadow-xs group"
+                  className="flex items-center gap-4 p-4 rounded-2xl bg-brand-white dark:bg-neutral-800 border border-brand-border/80 dark:border-neutral-700 hover:border-brand-gold dark:hover:border-brand-gold transition-all shadow-xs group"
                 >
-                  <div className="w-11 h-11 rounded-xl bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800/60 flex items-center justify-center text-emerald-600 dark:text-emerald-400 shrink-0 group-hover:scale-105 transition-transform">
+                  <div className="w-11 h-11 rounded-xl bg-emerald-50 dark:bg-emerald-950/50 border border-emerald-200 dark:border-emerald-800/60 flex items-center justify-center text-emerald-600 dark:text-emerald-400 shrink-0 group-hover:scale-105 transition-transform">
                     <MessageCircle className="w-5 h-5" />
                   </div>
                   <div>
-                    <span className="text-[11px] font-semibold text-neutral-400 dark:text-neutral-500 uppercase tracking-wider block">
+                    <span className="text-[11px] font-semibold text-neutral-400 dark:text-neutral-400 uppercase tracking-wider block">
                       WhatsApp / Phone
                     </span>
                     <span className="text-sm sm:text-base font-bold text-brand-black dark:text-white group-hover:text-brand-gold transition-colors">
@@ -142,13 +142,13 @@ export default function Contact({ initialService = '', initialPlan = null }) {
                 {/* Email */}
                 <a
                   href="mailto:velclickagency@gmail.com"
-                  className="flex items-center gap-4 p-4 rounded-2xl bg-brand-white dark:bg-neutral-850 border border-brand-border/80 dark:border-neutral-750 hover:border-brand-gold dark:hover:border-brand-gold transition-all shadow-xs group"
+                  className="flex items-center gap-4 p-4 rounded-2xl bg-brand-white dark:bg-neutral-800 border border-brand-border/80 dark:border-neutral-700 hover:border-brand-gold dark:hover:border-brand-gold transition-all shadow-xs group"
                 >
                   <div className="w-11 h-11 rounded-xl bg-brand-ivory dark:bg-neutral-800 border border-brand-gold/40 dark:border-brand-gold/40 flex items-center justify-center text-brand-gold shrink-0 group-hover:scale-105 transition-transform">
                     <Mail className="w-5 h-5" />
                   </div>
                   <div>
-                    <span className="text-[11px] font-semibold text-neutral-400 dark:text-neutral-500 uppercase tracking-wider block">
+                    <span className="text-[11px] font-semibold text-neutral-400 dark:text-neutral-400 uppercase tracking-wider block">
                       Email Address
                     </span>
                     <span className="text-sm sm:text-base font-bold text-brand-black dark:text-white group-hover:text-brand-gold transition-colors break-all">
@@ -158,12 +158,12 @@ export default function Contact({ initialService = '', initialPlan = null }) {
                 </a>
 
                 {/* Location */}
-                <div className="flex items-center gap-4 p-4 rounded-2xl bg-brand-white dark:bg-neutral-850 border border-brand-border/80 dark:border-neutral-750 shadow-xs">
+                <div className="flex items-center gap-4 p-4 rounded-2xl bg-brand-white dark:bg-neutral-800 border border-brand-border/80 dark:border-neutral-700 shadow-xs">
                   <div className="w-11 h-11 rounded-xl bg-amber-50 dark:bg-neutral-800 border border-amber-200 dark:border-neutral-700 flex items-center justify-center text-brand-gold shrink-0">
                     <MapPin className="w-5 h-5" />
                   </div>
                   <div>
-                    <span className="text-[11px] font-semibold text-neutral-400 dark:text-neutral-500 uppercase tracking-wider block">
+                    <span className="text-[11px] font-semibold text-neutral-400 dark:text-neutral-400 uppercase tracking-wider block">
                       Agency Headquarters
                     </span>
                     <span className="text-sm font-bold text-brand-black dark:text-white">
@@ -174,7 +174,7 @@ export default function Contact({ initialService = '', initialPlan = null }) {
               </div>
 
               {/* Working Hours & SLA */}
-              <div className="p-4 rounded-2xl bg-brand-white/80 dark:bg-neutral-850/80 border border-brand-gold/20 dark:border-neutral-750 flex items-center gap-3 text-xs text-brand-charcoal dark:text-neutral-300">
+              <div className="p-4 rounded-2xl bg-brand-white/80 dark:bg-neutral-800/80 border border-brand-gold/20 dark:border-neutral-700 flex items-center gap-3 text-xs text-brand-charcoal dark:text-neutral-300">
                 <Clock className="w-4 h-4 text-brand-gold shrink-0" />
                 <span>Rapid response within 2 hours during business hours (Mon – Sat).</span>
               </div>
@@ -183,7 +183,7 @@ export default function Contact({ initialService = '', initialPlan = null }) {
 
           {/* Right Column: Contact Form */}
           <div className="lg:col-span-7">
-            <div className="bg-brand-white dark:bg-brand-dark-card rounded-3xl p-7 sm:p-9 border border-brand-border dark:border-neutral-800 shadow-card-soft dark:shadow-dark-card-soft">
+            <div className="bg-brand-white dark:bg-neutral-900 rounded-3xl p-7 sm:p-9 border border-brand-border dark:border-neutral-800 shadow-card-soft dark:shadow-dark-card-soft">
               <div className="mb-6">
                 <h3 className="text-xl sm:text-2xl font-bold text-brand-black dark:text-white">
                   Send Your Project Enquiry
@@ -231,7 +231,7 @@ export default function Contact({ initialService = '', initialPlan = null }) {
                 {/* Row 1: Name and Business Name */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-xs font-bold uppercase tracking-wider text-brand-black dark:text-neutral-200 mb-1.5">
+                    <label className="block text-xs font-bold uppercase tracking-wider text-brand-black dark:text-neutral-100 mb-1.5">
                       Your Full Name <span className="text-red-500">*</span>
                     </label>
                     <input
@@ -240,7 +240,7 @@ export default function Contact({ initialService = '', initialPlan = null }) {
                       className={`w-full px-4 py-3 rounded-xl border text-sm text-brand-black dark:text-white placeholder:text-neutral-400 dark:placeholder:text-neutral-500 focus:outline-none focus:ring-2 focus:ring-brand-gold transition-all ${
                         errors.name
                           ? 'border-red-400 bg-red-50/30 dark:bg-red-950/20'
-                          : 'border-neutral-200 dark:border-neutral-750 bg-brand-white dark:bg-neutral-900'
+                          : 'border-neutral-200 dark:border-neutral-700 bg-brand-white dark:bg-neutral-800'
                       }`}
                       {...register('name', { required: 'Please enter your full name.' })}
                     />
@@ -252,7 +252,7 @@ export default function Contact({ initialService = '', initialPlan = null }) {
                   </div>
 
                   <div>
-                    <label className="block text-xs font-bold uppercase tracking-wider text-brand-black dark:text-neutral-200 mb-1.5">
+                    <label className="block text-xs font-bold uppercase tracking-wider text-brand-black dark:text-neutral-100 mb-1.5">
                       Business / Company Name <span className="text-red-500">*</span>
                     </label>
                     <input
@@ -261,7 +261,7 @@ export default function Contact({ initialService = '', initialPlan = null }) {
                       className={`w-full px-4 py-3 rounded-xl border text-sm text-brand-black dark:text-white placeholder:text-neutral-400 dark:placeholder:text-neutral-500 focus:outline-none focus:ring-2 focus:ring-brand-gold transition-all ${
                         errors.businessName
                           ? 'border-red-400 bg-red-50/30 dark:bg-red-950/20'
-                          : 'border-neutral-200 dark:border-neutral-750 bg-brand-white dark:bg-neutral-900'
+                          : 'border-neutral-200 dark:border-neutral-700 bg-brand-white dark:bg-neutral-800'
                       }`}
                       {...register('businessName', { required: 'Please enter your business name.' })}
                     />
@@ -276,7 +276,7 @@ export default function Contact({ initialService = '', initialPlan = null }) {
                 {/* Row 2: Email and Phone */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-xs font-bold uppercase tracking-wider text-brand-black dark:text-neutral-200 mb-1.5">
+                    <label className="block text-xs font-bold uppercase tracking-wider text-brand-black dark:text-neutral-100 mb-1.5">
                       Email Address <span className="text-red-500">*</span>
                     </label>
                     <input
@@ -285,7 +285,7 @@ export default function Contact({ initialService = '', initialPlan = null }) {
                       className={`w-full px-4 py-3 rounded-xl border text-sm text-brand-black dark:text-white placeholder:text-neutral-400 dark:placeholder:text-neutral-500 focus:outline-none focus:ring-2 focus:ring-brand-gold transition-all ${
                         errors.email
                           ? 'border-red-400 bg-red-50/30 dark:bg-red-950/20'
-                          : 'border-neutral-200 dark:border-neutral-750 bg-brand-white dark:bg-neutral-900'
+                          : 'border-neutral-200 dark:border-neutral-700 bg-brand-white dark:bg-neutral-800'
                       }`}
                       {...register('email', {
                         required: 'Please enter your email address.',
@@ -303,7 +303,7 @@ export default function Contact({ initialService = '', initialPlan = null }) {
                   </div>
 
                   <div>
-                    <label className="block text-xs font-bold uppercase tracking-wider text-brand-black dark:text-neutral-200 mb-1.5">
+                    <label className="block text-xs font-bold uppercase tracking-wider text-brand-black dark:text-neutral-100 mb-1.5">
                       Phone / WhatsApp Number <span className="text-red-500">*</span>
                     </label>
                     <input
@@ -312,7 +312,7 @@ export default function Contact({ initialService = '', initialPlan = null }) {
                       className={`w-full px-4 py-3 rounded-xl border text-sm text-brand-black dark:text-white placeholder:text-neutral-400 dark:placeholder:text-neutral-500 focus:outline-none focus:ring-2 focus:ring-brand-gold transition-all ${
                         errors.phone
                           ? 'border-red-400 bg-red-50/30 dark:bg-red-950/20'
-                          : 'border-neutral-200 dark:border-neutral-750 bg-brand-white dark:bg-neutral-900'
+                          : 'border-neutral-200 dark:border-neutral-700 bg-brand-white dark:bg-neutral-800'
                       }`}
                       {...register('phone', {
                         required: 'Please enter your phone number.',
@@ -332,11 +332,11 @@ export default function Contact({ initialService = '', initialPlan = null }) {
 
                 {/* Service Required */}
                 <div>
-                  <label className="block text-xs font-bold uppercase tracking-wider text-brand-black dark:text-neutral-200 mb-1.5">
+                  <label className="block text-xs font-bold uppercase tracking-wider text-brand-black dark:text-neutral-100 mb-1.5">
                     Service Required <span className="text-red-500">*</span>
                   </label>
                   <select
-                    className="w-full px-4 py-3 rounded-xl border border-neutral-200 dark:border-neutral-750 bg-brand-white dark:bg-neutral-900 text-sm text-brand-black dark:text-white focus:outline-none focus:ring-2 focus:ring-brand-gold transition-all"
+                    className="w-full px-4 py-3 rounded-xl border border-neutral-200 dark:border-neutral-700 bg-brand-white dark:bg-neutral-800 text-sm text-brand-black dark:text-white focus:outline-none focus:ring-2 focus:ring-brand-gold transition-all"
                     {...register('serviceRequired', { required: 'Please select a service.' })}
                   >
                     <option value="AI Video Creation">AI Video Creation</option>
@@ -349,7 +349,7 @@ export default function Contact({ initialService = '', initialPlan = null }) {
 
                 {/* Project Details */}
                 <div>
-                  <label className="block text-xs font-bold uppercase tracking-wider text-brand-black dark:text-neutral-200 mb-1.5">
+                  <label className="block text-xs font-bold uppercase tracking-wider text-brand-black dark:text-neutral-100 mb-1.5">
                     Project Details & Goals <span className="text-red-500">*</span>
                   </label>
                   <textarea
@@ -358,7 +358,7 @@ export default function Contact({ initialService = '', initialPlan = null }) {
                     className={`w-full px-4 py-3 rounded-xl border text-sm text-brand-black dark:text-white placeholder:text-neutral-400 dark:placeholder:text-neutral-500 focus:outline-none focus:ring-2 focus:ring-brand-gold transition-all resize-y ${
                       errors.projectDetails
                         ? 'border-red-400 bg-red-50/30 dark:bg-red-950/20'
-                        : 'border-neutral-200 dark:border-neutral-750 bg-brand-white dark:bg-neutral-900'
+                        : 'border-neutral-200 dark:border-neutral-700 bg-brand-white dark:bg-neutral-800'
                     }`}
                     {...register('projectDetails', {
                       required: 'Please provide a short description of your project.',
@@ -390,7 +390,7 @@ export default function Contact({ initialService = '', initialPlan = null }) {
                 </div>
 
                 {/* Direct Alternative */}
-                <div className="pt-3 text-center text-xs text-neutral-400 dark:text-neutral-500">
+                <div className="pt-3 text-center text-xs text-neutral-400 dark:text-neutral-400">
                   Prefer instant messaging?{' '}
                   <a
                     href="https://wa.me/916379553564"

@@ -41,7 +41,7 @@ export default function TrustSection() {
                 }`}
               >
                 {/* Gold Circular Icon */}
-                <div className="w-12 h-12 rounded-full bg-brand-ivory dark:bg-neutral-850 border-2 border-brand-gold flex items-center justify-center shrink-0 text-brand-gold shadow-xs transition-transform duration-300 hover:scale-105">
+                <div className="w-12 h-12 rounded-full bg-brand-ivory dark:bg-neutral-900 border-2 border-brand-gold flex items-center justify-center shrink-0 text-brand-gold shadow-xs transition-transform duration-300 hover:scale-105">
                   <Icon className="w-5 h-5" />
                 </div>
 

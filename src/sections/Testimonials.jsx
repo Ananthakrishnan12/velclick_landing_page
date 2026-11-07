@@ -20,12 +20,12 @@ export default function Testimonials() {
 
         {/* Development Placeholder State (No Fake Reviews or Fake Stars) */}
         <div className="max-w-3xl mx-auto bg-brand-white dark:bg-brand-dark-card rounded-3xl p-8 sm:p-12 border border-brand-gold/40 shadow-card-soft dark:shadow-dark-card-soft text-center space-y-6">
-          <div className="w-16 h-16 rounded-2xl bg-brand-ivory dark:bg-neutral-850 border-2 border-brand-gold/50 flex items-center justify-center mx-auto text-brand-gold shadow-sm">
+          <div className="w-16 h-16 rounded-2xl bg-brand-ivory dark:bg-neutral-800 border-2 border-brand-gold/50 flex items-center justify-center mx-auto text-brand-gold shadow-sm">
             <HeartHandshake className="w-8 h-8" />
           </div>
 
           <div className="space-y-2">
-            <h3 className="text-xl sm:text-2xl font-bold text-brand-black dark:text-brand-white">
+            <h3 className="text-xl sm:text-2xl font-bold text-brand-black dark:text-white">
               Client Feedback In Progress
             </h3>
             <p className="text-sm sm:text-base text-brand-charcoal dark:text-neutral-300 max-w-xl mx-auto leading-relaxed">
@@ -35,27 +35,27 @@ export default function Testimonials() {
 
           {/* Value Commitments */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4 border-t border-neutral-100 dark:border-neutral-800 text-left">
-            <div className="p-3.5 rounded-2xl bg-brand-ivory/60 dark:bg-neutral-900 border border-brand-border dark:border-neutral-800">
+            <div className="p-3.5 rounded-2xl bg-brand-ivory/60 dark:bg-neutral-800 border border-brand-border dark:border-neutral-700">
               <span className="text-xs font-bold text-brand-black dark:text-white block mb-1">
                 Zero Fake Reviews
               </span>
-              <p className="text-[11px] text-brand-charcoal dark:text-neutral-400 leading-snug">
+              <p className="text-[11px] text-brand-charcoal dark:text-neutral-300 leading-snug">
                 100% genuine feedback from real paying businesses only.
               </p>
             </div>
-            <div className="p-3.5 rounded-2xl bg-brand-ivory/60 dark:bg-neutral-900 border border-brand-border dark:border-neutral-800">
+            <div className="p-3.5 rounded-2xl bg-brand-ivory/60 dark:bg-neutral-800 border border-brand-border dark:border-neutral-700">
               <span className="text-xs font-bold text-brand-black dark:text-white block mb-1">
                 Milestone Reports
               </span>
-              <p className="text-[11px] text-brand-charcoal dark:text-neutral-400 leading-snug">
+              <p className="text-[11px] text-brand-charcoal dark:text-neutral-300 leading-snug">
                 Every client receives comprehensive analytics and honest ROI metrics.
               </p>
             </div>
-            <div className="p-3.5 rounded-2xl bg-brand-ivory/60 dark:bg-neutral-900 border border-brand-border dark:border-neutral-800">
+            <div className="p-3.5 rounded-2xl bg-brand-ivory/60 dark:bg-neutral-800 border border-brand-border dark:border-neutral-700">
               <span className="text-xs font-bold text-brand-black dark:text-white block mb-1">
                 Direct Communication
               </span>
-              <p className="text-[11px] text-brand-charcoal dark:text-neutral-400 leading-snug">
+              <p className="text-[11px] text-brand-charcoal dark:text-neutral-300 leading-snug">
                 Dedicated WhatsApp and phone access for responsive collaboration.
               </p>
             </div>

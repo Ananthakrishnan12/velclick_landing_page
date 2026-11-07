@@ -24,15 +24,15 @@ export default function Hero({ onConsultationClick }) {
           {/* Left Column Content */}
           <div className="lg:col-span-7 space-y-6 text-center lg:text-left">
             {/* Small Label */}
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-ivory dark:bg-neutral-850 border border-brand-gold/30 dark:border-brand-gold/40 shadow-xs">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-ivory dark:bg-neutral-900 border border-brand-gold/30 dark:border-brand-gold/40 shadow-xs">
               <span className="w-2 h-2 rounded-full bg-brand-gold animate-pulse" />
-              <span className="text-xs font-bold uppercase tracking-wider text-brand-black dark:text-brand-white">
+              <span className="text-xs font-bold uppercase tracking-wider text-brand-black dark:text-neutral-100">
                 DIGITAL MARKETING & CREATIVE SOLUTIONS
               </span>
             </div>
 
             {/* Main Heading */}
-            <h1 className="text-3.5xl sm:text-5xl lg:text-5.5xl font-extrabold text-brand-black dark:text-brand-white tracking-tight leading-[1.12]">
+            <h1 className="text-3.5xl sm:text-5xl lg:text-5.5xl font-extrabold text-brand-black dark:text-white tracking-tight leading-[1.12]">
               We Help{' '}
               <span className="gold-gradient-text drop-shadow-xs">
                 Businesses Grow
@@ -142,7 +142,7 @@ export default function Hero({ onConsultationClick }) {
               </div>
 
               {/* Tagline Card Below Visual on Mobile */}
-              <div className="mt-4 p-3 rounded-2xl bg-brand-ivory dark:bg-neutral-850 border border-brand-gold/30 dark:border-brand-gold/40 flex items-center justify-between text-xs sm:text-sm text-brand-black dark:text-white">
+              <div className="mt-4 p-3 rounded-2xl bg-brand-ivory dark:bg-neutral-900 border border-brand-gold/30 dark:border-brand-gold/40 flex items-center justify-between text-xs sm:text-sm text-brand-black dark:text-white">
                 <span className="font-bold flex items-center gap-1.5">
                   <Sparkles className="w-4 h-4 text-brand-gold" />
                   Your Growth. Our Click.

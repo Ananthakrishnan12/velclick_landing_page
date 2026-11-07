@@ -67,7 +67,7 @@ export default function Navbar({ theme, toggleTheme }) {
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
           ? 'bg-brand-white/95 dark:bg-brand-dark/95 backdrop-blur-md shadow-sm dark:shadow-neutral-950/50 border-b border-brand-border dark:border-neutral-800 py-2.5'
-          : 'bg-brand-white/90 dark:bg-brand-dark/90 backdrop-blur-sm border-b border-neutral-100 dark:border-neutral-850 py-3.5'
+          : 'bg-brand-white/90 dark:bg-brand-dark/90 backdrop-blur-sm border-b border-neutral-100 dark:border-neutral-800 py-3.5'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -101,7 +101,7 @@ export default function Navbar({ theme, toggleTheme }) {
                   className={`relative px-3.5 py-2 text-sm font-medium rounded-full transition-all duration-200 ${
                     isActive
                       ? 'text-brand-black dark:text-brand-white font-semibold'
-                      : 'text-brand-charcoal dark:text-neutral-400 hover:text-brand-gold dark:hover:text-brand-light-gold'
+                      : 'text-brand-charcoal dark:text-neutral-300 hover:text-brand-gold dark:hover:text-brand-light-gold'
                   }`}
                 >
                   {link.name}
@@ -162,7 +162,7 @@ export default function Navbar({ theme, toggleTheme }) {
                 className={`flex items-center justify-between px-4 py-2.5 rounded-xl text-base font-medium transition-all ${
                   isActive
                     ? 'bg-brand-ivory dark:bg-neutral-800 text-brand-gold dark:text-brand-light-gold font-semibold border-l-4 border-brand-gold pl-3'
-                    : 'text-brand-black dark:text-neutral-200 hover:bg-neutral-50 dark:hover:bg-neutral-800/60 hover:text-brand-gold'
+                    : 'text-brand-black dark:text-neutral-100 hover:bg-neutral-50 dark:hover:bg-neutral-800/60 hover:text-brand-gold'
                 }`}
               >
                 <span>{link.name}</span>

@@ -47,7 +47,7 @@ export default function About({ onKnowMoreClick }) {
                 <div className="space-y-4">
                   <div className="p-4 rounded-2xl bg-brand-ivory/70 dark:bg-neutral-900 border border-brand-gold/25 dark:border-neutral-800">
                     <div className="flex items-center justify-between mb-2">
-                      <span className="text-xs font-bold uppercase tracking-wider text-brand-black dark:text-white flex items-center gap-1.5">
+                      <span className="text-xs font-bold uppercase tracking-wider text-brand-black dark:text-neutral-100 flex items-center gap-1.5">
                         <Target className="w-4 h-4 text-brand-gold" />
                         Strategic Pillars
                       </span>
@@ -56,17 +56,17 @@ export default function About({ onKnowMoreClick }) {
                       </span>
                     </div>
 
-                    <div className="grid grid-cols-2 gap-2 text-xs text-brand-charcoal dark:text-neutral-300 font-medium pt-1">
-                      <div className="p-2 rounded-xl bg-brand-white dark:bg-neutral-850 border border-neutral-200 dark:border-neutral-750">
+                    <div className="grid grid-cols-2 gap-2 text-xs font-medium pt-1">
+                      <div className="p-2 rounded-xl bg-brand-white dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 text-brand-black dark:text-neutral-100">
                         1. Precision Targeting
                       </div>
-                      <div className="p-2 rounded-xl bg-brand-white dark:bg-neutral-850 border border-neutral-200 dark:border-neutral-750">
+                      <div className="p-2 rounded-xl bg-brand-white dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 text-brand-black dark:text-neutral-100">
                         2. AI Storytelling
                       </div>
-                      <div className="p-2 rounded-xl bg-brand-white dark:bg-neutral-850 border border-neutral-200 dark:border-neutral-750">
+                      <div className="p-2 rounded-xl bg-brand-white dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 text-brand-black dark:text-neutral-100">
                         3. Fast Execution
                       </div>
-                      <div className="p-2 rounded-xl bg-brand-white dark:bg-neutral-850 border border-neutral-200 dark:border-neutral-750">
+                      <div className="p-2 rounded-xl bg-brand-white dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 text-brand-black dark:text-neutral-100">
                         4. Sustainable Growth
                       </div>
                     </div>
@@ -115,8 +115,8 @@ export default function About({ onKnowMoreClick }) {
             </p>
 
             {/* Highlighting Quote Box */}
-            <div className="p-5 sm:p-6 rounded-2xl bg-brand-ivory dark:bg-neutral-850/80 border-l-4 border-brand-gold shadow-sm">
-              <p className="text-sm sm:text-base font-semibold text-brand-black dark:text-white italic leading-relaxed">
+            <div className="p-5 sm:p-6 rounded-2xl bg-brand-ivory dark:bg-neutral-900 border-l-4 border-brand-gold shadow-sm">
+              <p className="text-sm sm:text-base font-semibold text-brand-black dark:text-neutral-100 italic leading-relaxed">
                 "We combine creativity, technology and business-focused strategies to turn digital opportunities into meaningful growth."
               </p>
             </div>
