@@ -52,31 +52,16 @@ export default function PortfolioCard({ project, onViewProject, onPlayVideo }) {
             {/* Central Graphic / Play Indicator */}
             <div className="my-auto py-2 text-center">
               {isVideo ? (
-                <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-gold-gradient text-brand-black shadow-gold-md group-hover:scale-110 transition-transform">
-                  <Play className="w-5 h-5 fill-current translate-x-0.5" />
+                <div className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-gold-gradient text-brand-black shadow-gold-md group-hover:scale-110 transition-transform">
+                  <Play className="w-6 h-6 fill-current translate-x-0.5" />
                 </div>
               ) : (
                 <div className="text-left">
-                  <h4 className="text-base sm:text-lg font-bold text-brand-white leading-snug line-clamp-1">
+                  <h4 className="text-base sm:text-lg font-bold text-brand-white leading-snug line-clamp-2">
                     {project.title}
                   </h4>
-                  <p className="text-xs text-neutral-400 mt-1 line-clamp-2">
-                    {project.description}
-                  </p>
                 </div>
               )}
-            </div>
-
-            {/* Bottom Tech Tags */}
-            <div className="flex items-center gap-1.5 flex-wrap">
-              {project.tech?.slice(0, 3).map((t, idx) => (
-                <span
-                  key={idx}
-                  className="px-2 py-0.5 rounded bg-brand-gold/15 text-brand-light-gold text-[10px] font-medium"
-                >
-                  {t}
-                </span>
-              ))}
             </div>
           </div>
 
@@ -101,37 +86,26 @@ export default function PortfolioCard({ project, onViewProject, onPlayVideo }) {
           </div>
         </div>
 
-        {/* Card Body */}
-        <div className="p-6">
+        {/* Card Body - Clean, uncluttered presentation */}
+        <div className="p-5 sm:p-6">
           {/* Client Delivery Badge */}
           {project.clientName && (
-            <div className="mb-3 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-emerald-50 dark:bg-emerald-950/40 text-[11px] font-medium text-emerald-800 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800/60 max-w-full truncate">
-              <Building2 className="w-3.5 h-3.5 shrink-0 text-emerald-600 dark:text-emerald-400" />
-              <span className="truncate">Client: <strong className="font-semibold">{project.clientName}</strong></span>
-              <CheckCircle2 className="w-3 h-3 shrink-0 text-emerald-500" />
+            <div className="mb-3 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-emerald-50 dark:bg-emerald-950/40 text-xs font-semibold text-emerald-800 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800/60 max-w-full truncate shadow-2xs">
+              <Building2 className="w-4 h-4 shrink-0 text-emerald-600 dark:text-emerald-400" />
+              <span className="truncate">Client: <strong className="font-bold">{project.clientName}</strong></span>
+              <CheckCircle2 className="w-3.5 h-3.5 shrink-0 text-emerald-500" />
             </div>
           )}
 
-          <div className="flex items-center gap-2 mb-2">
-            <span className="text-[11px] font-bold uppercase tracking-wider text-brand-gold">
-              {project.category}
-            </span>
-            <span className="w-1 h-1 rounded-full bg-neutral-300 dark:bg-neutral-600" />
-            <span className="text-[11px] text-neutral-400 dark:text-neutral-400">{project.tag}</span>
-          </div>
-
-          <h3 className="text-lg font-bold text-brand-black dark:text-white mb-2 group-hover:text-brand-gold dark:group-hover:text-brand-light-gold transition-colors">
+          {/* Title */}
+          <h3 className="text-lg sm:text-xl font-bold text-brand-black dark:text-white group-hover:text-brand-gold dark:group-hover:text-brand-light-gold transition-colors leading-snug">
             {project.title}
           </h3>
-
-          <p className="text-xs sm:text-sm text-brand-charcoal dark:text-neutral-300 line-clamp-2 mb-4 leading-relaxed">
-            {project.description}
-          </p>
         </div>
       </div>
 
       {/* Card Button */}
-      <div className="px-6 pb-6 pt-0">
+      <div className="px-5 sm:px-6 pb-6 pt-0">
         {isVideo ? (
           <Button
             onClick={() => onPlayVideo(project)}
