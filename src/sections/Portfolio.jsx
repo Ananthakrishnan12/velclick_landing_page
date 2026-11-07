@@ -2,11 +2,13 @@ import React, { useState, useMemo } from 'react';
 import SectionHeading from '../components/SectionHeading';
 import PortfolioCard from '../components/PortfolioCard';
 import PortfolioModal from '../components/PortfolioModal';
+import VideoPlayerModal from '../components/VideoPlayerModal';
 import { portfolioCategories, portfolioProjects } from '../data/portfolio';
 
 export default function Portfolio({ onSelectProject }) {
   const [activeCategory, setActiveCategory] = useState('All Projects');
   const [selectedProject, setSelectedProject] = useState(null);
+  const [activeVideo, setActiveVideo] = useState(null);
 
   const filteredProjects = useMemo(() => {
     if (activeCategory === 'All Projects') {
@@ -36,7 +38,7 @@ export default function Portfolio({ onSelectProject }) {
           badge="Featured Portfolio"
           title="Creative Work That Makes an Impact."
           highlightWord="Makes an Impact"
-          description="Explore our sample case studies and design prototypes demonstrating our capabilities across video, advertising, and web architecture."
+          description="Explore our sample case studies, client-delivered video productions, and digital campaigns designed to drive measurable growth."
           className="mb-10 sm:mb-12"
         />
 
@@ -51,7 +53,7 @@ export default function Portfolio({ onSelectProject }) {
                 onClick={() => setActiveCategory(category)}
                 className={`px-4 py-2 rounded-full text-xs sm:text-sm font-semibold whitespace-nowrap transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-brand-gold ${
                   isActive
-                    ? 'bg-brand-black dark:bg-neutral-800 text-brand-white dark:text-brand-white shadow-md border border-brand-gold/60 dark:border-brand-gold'
+                    ? 'bg-brand-black dark:bg-brand-gold text-brand-white dark:text-brand-black shadow-md border border-brand-gold/60 dark:border-brand-gold'
                     : 'bg-brand-ivory dark:bg-neutral-900 text-brand-charcoal dark:text-neutral-400 hover:text-brand-gold hover:bg-brand-ivory/80 dark:hover:bg-neutral-800 border border-brand-border/60 dark:border-neutral-800'
                 }`}
               >
@@ -68,27 +70,37 @@ export default function Portfolio({ onSelectProject }) {
               key={project.id}
               project={project}
               onViewProject={(p) => setSelectedProject(p)}
+              onPlayVideo={(p) => setActiveVideo(p)}
             />
           ))}
         </div>
 
         {/* Footer Note */}
         <div className="mt-12 text-center text-xs text-neutral-400 dark:text-neutral-500">
-          Showing {filteredProjects.length} demonstration projects. Need a bespoke design or campaign for your business?{' '}
+          Want a high-converting AI commercial or custom campaign delivered for your business?{' '}
           <a
             href="#contact"
             className="text-brand-gold dark:text-brand-light-gold font-semibold underline hover:text-brand-black dark:hover:text-white transition-colors"
           >
-            Request a personalized sample
+            Request a personalized quotation & sample
           </a>
         </div>
       </div>
 
-      {/* Project Detail Modal */}
+      {/* Case Study Detail Modal (for non-video projects) */}
       {selectedProject && (
         <PortfolioModal
           project={selectedProject}
           onClose={() => setSelectedProject(null)}
+          onEnquire={handleEnquireFromModal}
+        />
+      )}
+
+      {/* Interactive Video Player Modal (for client video samples) */}
+      {activeVideo && (
+        <VideoPlayerModal
+          project={activeVideo}
+          onClose={() => setActiveVideo(null)}
           onEnquire={handleEnquireFromModal}
         />
       )}

@@ -100,49 +100,45 @@ export default function Hero({ onConsultationClick }) {
               {/* Decorative Frame Glow */}
               <div className="absolute -inset-2 bg-gradient-to-r from-brand-gold/20 via-brand-light-gold/30 to-brand-gold/10 dark:from-brand-gold/30 dark:via-brand-gold/20 dark:to-brand-gold/10 rounded-3xl blur-xl opacity-75" />
 
-              {/* Visual Container */}
-              <div className="relative bg-brand-white dark:bg-neutral-900 rounded-3xl border border-brand-border/80 dark:border-neutral-800 shadow-2xl overflow-hidden p-2 sm:p-3">
-                {/* 3D Illustration Graphic (3D Laptop, Rocket, Meta symbols, fluid gold waves) */}
-                <img
-                  src="/images/hero-visual-3d.png"
-                  alt="VelClick Digital Marketing Analytics Dashboard and Rocket Illustration"
-                  className="w-full h-auto object-cover rounded-2xl transition-transform duration-500 hover:scale-[1.02]"
-                  loading="eager"
-                />
-
-                {/* Floating Metric Badge 1 (Top Left) */}
-                <div className="absolute top-6 left-6 bg-brand-white/95 dark:bg-neutral-900/95 backdrop-blur-md rounded-2xl p-3 border border-brand-gold/40 shadow-lg hidden sm:flex items-center gap-3 animate-float-slow">
-                  <div className="w-9 h-9 rounded-xl bg-gold-gradient flex items-center justify-center text-brand-black font-bold">
-                    <TrendingUp className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <span className="text-[10px] uppercase font-bold text-brand-charcoal dark:text-neutral-400 block">
-                      Targeted Performance
-                    </span>
-                    <span className="text-sm font-extrabold text-brand-black dark:text-white">
-                      4.8X ROAS Potential
-                    </span>
-                  </div>
+              {/* Visual Card Container - Formatted to Fit Perfectly */}
+              <div className="relative bg-brand-white dark:bg-neutral-900 rounded-3xl border border-brand-border/80 dark:border-neutral-800 shadow-2xl overflow-hidden p-3 sm:p-4">
+                
+                {/* 3D Illustration Graphic (Laptop with Ads Dashboard, Launching Rocket, Meta symbols, fluid gold waves) */}
+                <div className="relative overflow-hidden rounded-2xl bg-neutral-50 dark:bg-neutral-950 flex items-center justify-center border border-neutral-100 dark:border-neutral-800">
+                  <img
+                    src="/images/hero-visual-3d.png"
+                    alt="VelClick Digital Marketing Analytics Dashboard and Rocket Illustration"
+                    className="w-full h-auto object-contain max-h-[360px] sm:max-h-[420px] transition-transform duration-500 hover:scale-[1.02]"
+                    loading="eager"
+                  />
                 </div>
 
-                {/* Floating Metric Badge 2 (Bottom Right) */}
-                <div className="absolute bottom-6 right-6 bg-brand-white/95 dark:bg-neutral-900/95 backdrop-blur-md rounded-2xl p-3 border border-brand-gold/40 shadow-lg hidden sm:flex items-center gap-3">
-                  <div className="w-9 h-9 rounded-xl bg-brand-ivory dark:bg-neutral-800 border border-brand-gold/40 flex items-center justify-center text-brand-gold">
-                    <Video className="w-5 h-5" />
+                {/* Sub-card Performance Highlights */}
+                <div className="mt-3 grid grid-cols-2 gap-2 text-xs">
+                  <div className="p-2.5 rounded-xl bg-brand-ivory dark:bg-neutral-800 border border-brand-gold/30 flex items-center gap-2">
+                    <div className="w-7 h-7 rounded-lg bg-gold-gradient flex items-center justify-center text-brand-black shrink-0">
+                      <TrendingUp className="w-4 h-4" />
+                    </div>
+                    <div>
+                      <span className="text-[10px] text-brand-charcoal dark:text-neutral-400 block font-medium">ROI Focus</span>
+                      <span className="font-bold text-brand-black dark:text-white">4.8X ROAS</span>
+                    </div>
                   </div>
-                  <div>
-                    <span className="text-[10px] uppercase font-bold text-brand-charcoal dark:text-neutral-400 block">
-                      Creative Innovation
-                    </span>
-                    <span className="text-sm font-extrabold text-brand-black dark:text-white">
-                      AI Video Ads
-                    </span>
+
+                  <div className="p-2.5 rounded-xl bg-brand-ivory dark:bg-neutral-800 border border-brand-gold/30 flex items-center gap-2">
+                    <div className="w-7 h-7 rounded-lg bg-brand-gold/20 text-brand-gold flex items-center justify-center shrink-0">
+                      <Video className="w-4 h-4" />
+                    </div>
+                    <div>
+                      <span className="text-[10px] text-brand-charcoal dark:text-neutral-400 block font-medium">Creatives</span>
+                      <span className="font-bold text-brand-black dark:text-white">AI Video Ads</span>
+                    </div>
                   </div>
                 </div>
               </div>
 
-              {/* Tagline Card Below Visual on Mobile */}
-              <div className="mt-4 p-3 rounded-2xl bg-brand-ivory dark:bg-neutral-900 border border-brand-gold/30 dark:border-brand-gold/40 flex items-center justify-between text-xs sm:text-sm text-brand-black dark:text-white">
+              {/* Tagline Card Below Visual */}
+              <div className="mt-3.5 p-3 rounded-2xl bg-brand-ivory dark:bg-neutral-900 border border-brand-gold/30 dark:border-brand-gold/40 flex items-center justify-between text-xs sm:text-sm text-brand-black dark:text-white shadow-xs">
                 <span className="font-bold flex items-center gap-1.5">
                   <Sparkles className="w-4 h-4 text-brand-gold" />
                   Your Growth. Our Click.
