@@ -35,3 +35,4 @@ export const faqs = [
     answer: "Getting started is straightforward: 1) Reach out via our contact form or WhatsApp for a free consultation. 2) We discuss your objectives, timeline, and requirements. 3) We propose a customized strategy and scope. 4) Once approved, we begin execution with clear milestones and regular progress updates.",
   },
 ];
+

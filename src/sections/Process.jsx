@@ -29,7 +29,7 @@ export default function Process() {
   return (
     <section
       id="process"
-      className="bg-brand-ivory py-20 sm:py-28 relative overflow-hidden"
+      className="bg-brand-ivory dark:bg-brand-dark py-20 sm:py-28 relative overflow-hidden transition-colors duration-300"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <SectionHeading

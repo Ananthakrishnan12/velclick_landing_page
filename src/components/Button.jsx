@@ -26,13 +26,13 @@ export default function Button({
     primary:
       'bg-gold-gradient text-brand-black shadow-gold-sm hover:shadow-gold-md hover:brightness-105 focus:ring-brand-gold border border-brand-light-gold/40',
     secondary:
-      'bg-brand-white text-brand-black border border-brand-border hover:border-brand-gold hover:text-brand-gold focus:ring-brand-gold shadow-sm hover:shadow-md',
+      'bg-brand-white dark:bg-neutral-850 text-brand-black dark:text-neutral-100 border border-brand-border dark:border-neutral-750 hover:border-brand-gold dark:hover:border-brand-gold hover:text-brand-gold dark:hover:text-brand-light-gold focus:ring-brand-gold shadow-sm hover:shadow-md',
     dark:
-      'bg-brand-black text-brand-white hover:bg-neutral-800 border border-brand-gold/30 hover:border-brand-gold focus:ring-brand-gold shadow-md',
+      'bg-brand-black dark:bg-neutral-900 text-brand-white hover:bg-neutral-800 dark:hover:bg-neutral-800 border border-brand-gold/30 hover:border-brand-gold focus:ring-brand-gold shadow-md',
     outline:
-      'bg-transparent text-brand-black border-2 border-brand-gold hover:bg-brand-gold/10 focus:ring-brand-gold',
+      'bg-transparent text-brand-black dark:text-brand-white border-2 border-brand-gold hover:bg-brand-gold/10 focus:ring-brand-gold',
     ghost:
-      'bg-transparent text-brand-charcoal hover:text-brand-gold hover:bg-brand-gold/5 focus:ring-brand-gold',
+      'bg-transparent text-brand-charcoal dark:text-neutral-300 hover:text-brand-gold dark:hover:text-brand-light-gold hover:bg-brand-gold/5 focus:ring-brand-gold',
   };
 
   const combinedClasses = `${baseStyles} ${sizeStyles[size] || sizeStyles.md} ${

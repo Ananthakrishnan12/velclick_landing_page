@@ -104,3 +104,4 @@ export const portfolioProjects = [
     accentColor: "#C18A25",
   },
 ];
+

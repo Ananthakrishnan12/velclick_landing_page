@@ -13,7 +13,7 @@ export default function PortfolioCard({ project, onViewProject }) {
   const Icon = categoryIcons[project.category] || Sparkles;
 
   return (
-    <div className="group bg-brand-white rounded-3xl overflow-hidden border border-brand-border/80 shadow-card-soft hover:shadow-card-hover hover:border-brand-gold/60 transition-all duration-300 flex flex-col justify-between">
+    <div className="group bg-brand-white dark:bg-brand-dark-card rounded-3xl overflow-hidden border border-brand-border/80 dark:border-neutral-800 shadow-card-soft dark:shadow-dark-card-soft hover:shadow-card-hover dark:hover:shadow-dark-card-hover hover:border-brand-gold/60 dark:hover:border-brand-gold/60 transition-all duration-300 flex flex-col justify-between">
       <div>
         {/* Project Visual Thumbnail / Interactive Graphic */}
         <div className="relative aspect-[16/10] bg-neutral-900 overflow-hidden flex items-center justify-center p-6">
@@ -72,15 +72,15 @@ export default function PortfolioCard({ project, onViewProject }) {
             <span className="text-[11px] font-bold uppercase tracking-wider text-brand-gold">
               {project.category}
             </span>
-            <span className="w-1 h-1 rounded-full bg-neutral-300" />
-            <span className="text-[11px] text-neutral-400">{project.tag}</span>
+            <span className="w-1 h-1 rounded-full bg-neutral-300 dark:bg-neutral-600" />
+            <span className="text-[11px] text-neutral-400 dark:text-neutral-500">{project.tag}</span>
           </div>
 
-          <h3 className="text-lg font-bold text-brand-black mb-2 group-hover:text-brand-gold transition-colors">
+          <h3 className="text-lg font-bold text-brand-black dark:text-brand-white mb-2 group-hover:text-brand-gold dark:group-hover:text-brand-light-gold transition-colors">
             {project.title}
           </h3>
 
-          <p className="text-xs sm:text-sm text-brand-charcoal line-clamp-2 mb-4 leading-relaxed">
+          <p className="text-xs sm:text-sm text-brand-charcoal dark:text-neutral-300 line-clamp-2 mb-4 leading-relaxed">
             {project.description}
           </p>
         </div>

@@ -12,8 +12,10 @@ import Pricing from './sections/Pricing';
 import Testimonials from './sections/Testimonials';
 import FAQ from './sections/FAQ';
 import Contact from './sections/Contact';
+import { useTheme } from './hooks/useTheme';
 
 export default function App() {
+  const { theme, toggleTheme } = useTheme();
   const [selectedService, setSelectedService] = useState('');
   const [selectedPlan, setSelectedPlan] = useState(null);
 
@@ -49,9 +51,9 @@ export default function App() {
   };
 
   return (
-    <div className="relative min-h-screen bg-brand-white text-brand-black flex flex-col font-sans selection:bg-brand-light-gold selection:text-brand-black">
-      {/* Sticky Navigation Bar */}
-      <Navbar />
+    <div className="relative min-h-screen bg-brand-white dark:bg-brand-dark text-brand-black dark:text-neutral-100 flex flex-col font-sans selection:bg-brand-light-gold selection:text-brand-black transition-colors duration-300">
+      {/* Sticky Navigation Bar with Theme Toggle in Top Right */}
+      <Navbar theme={theme} toggleTheme={toggleTheme} />
 
       {/* Main Sections */}
       <main className="flex-1">

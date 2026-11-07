@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowRight, Sparkles, TrendingUp, CheckCircle2, Video, Target } from 'lucide-react';
+import { ArrowRight, Sparkles, TrendingUp, CheckCircle2, Video } from 'lucide-react';
 import Button from '../components/Button';
 
 export default function Hero({ onConsultationClick }) {
@@ -11,12 +11,12 @@ export default function Hero({ onConsultationClick }) {
   return (
     <section
       id="home"
-      className="relative pt-28 sm:pt-36 pb-16 sm:pb-24 overflow-hidden bg-brand-white"
+      className="relative pt-28 sm:pt-36 pb-16 sm:pb-24 overflow-hidden bg-brand-white dark:bg-brand-dark transition-colors duration-300"
     >
       {/* Background Decorative Ambient Glows */}
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-hero-glow pointer-events-none -z-10" />
-      <div className="absolute top-1/3 left-0 w-72 h-72 bg-brand-gold/5 rounded-full blur-3xl pointer-events-none -z-10" />
-      <div className="absolute top-12 right-12 w-64 h-64 bg-brand-light-gold/15 rounded-full blur-3xl pointer-events-none -z-10" />
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-hero-glow dark:bg-hero-glow-dark pointer-events-none -z-10" />
+      <div className="absolute top-1/3 left-0 w-72 h-72 bg-brand-gold/5 dark:bg-brand-gold/10 rounded-full blur-3xl pointer-events-none -z-10" />
+      <div className="absolute top-12 right-12 w-64 h-64 bg-brand-light-gold/15 dark:bg-brand-gold/15 rounded-full blur-3xl pointer-events-none -z-10" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
@@ -24,15 +24,15 @@ export default function Hero({ onConsultationClick }) {
           {/* Left Column Content */}
           <div className="lg:col-span-7 space-y-6 text-center lg:text-left">
             {/* Small Label */}
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-ivory border border-brand-gold/30 shadow-xs">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-ivory dark:bg-neutral-850 border border-brand-gold/30 dark:border-brand-gold/40 shadow-xs">
               <span className="w-2 h-2 rounded-full bg-brand-gold animate-pulse" />
-              <span className="text-xs sm:text-xs font-bold uppercase tracking-wider text-brand-black">
+              <span className="text-xs font-bold uppercase tracking-wider text-brand-black dark:text-brand-white">
                 DIGITAL MARKETING & CREATIVE SOLUTIONS
               </span>
             </div>
 
             {/* Main Heading */}
-            <h1 className="text-3.5xl sm:text-5xl lg:text-5.5xl font-extrabold text-brand-black tracking-tight leading-[1.12]">
+            <h1 className="text-3.5xl sm:text-5xl lg:text-5.5xl font-extrabold text-brand-black dark:text-brand-white tracking-tight leading-[1.12]">
               We Help{' '}
               <span className="gold-gradient-text drop-shadow-xs">
                 Businesses Grow
@@ -41,7 +41,7 @@ export default function Hero({ onConsultationClick }) {
             </h1>
 
             {/* Description */}
-            <p className="text-base sm:text-lg lg:text-xl text-brand-charcoal max-w-2xl leading-relaxed">
+            <p className="text-base sm:text-lg lg:text-xl text-brand-charcoal dark:text-neutral-300 max-w-2xl leading-relaxed">
               Creative digital solutions to help your business attract customers, build a strong online presence, and achieve sustainable growth.
             </p>
 
@@ -77,18 +77,18 @@ export default function Hero({ onConsultationClick }) {
             </div>
 
             {/* Value Highlights Pill Row */}
-            <div className="pt-6 border-t border-neutral-100 flex flex-wrap items-center justify-center lg:justify-start gap-4 sm:gap-6 text-xs text-brand-charcoal">
+            <div className="pt-6 border-t border-neutral-100 dark:border-neutral-800 flex flex-wrap items-center justify-center lg:justify-start gap-4 sm:gap-6 text-xs text-brand-charcoal dark:text-neutral-300">
               <div className="flex items-center gap-2">
                 <CheckCircle2 className="w-4 h-4 text-brand-gold shrink-0" />
-                <span className="font-semibold text-brand-black">Strategic Meta Ads</span>
+                <span className="font-semibold text-brand-black dark:text-white">Strategic Meta Ads</span>
               </div>
               <div className="flex items-center gap-2">
                 <CheckCircle2 className="w-4 h-4 text-brand-gold shrink-0" />
-                <span className="font-semibold text-brand-black">AI Video Production</span>
+                <span className="font-semibold text-brand-black dark:text-white">AI Video Production</span>
               </div>
               <div className="flex items-center gap-2">
                 <CheckCircle2 className="w-4 h-4 text-brand-gold shrink-0" />
-                <span className="font-semibold text-brand-black">Chennai, India</span>
+                <span className="font-semibold text-brand-black dark:text-white">Chennai, India</span>
               </div>
             </div>
           </div>
@@ -98,10 +98,10 @@ export default function Hero({ onConsultationClick }) {
             <div className="relative mx-auto max-w-md lg:max-w-none">
               
               {/* Decorative Frame Glow */}
-              <div className="absolute -inset-2 bg-gradient-to-r from-brand-gold/20 via-brand-light-gold/30 to-brand-gold/10 rounded-3xl blur-xl opacity-75" />
+              <div className="absolute -inset-2 bg-gradient-to-r from-brand-gold/20 via-brand-light-gold/30 to-brand-gold/10 dark:from-brand-gold/30 dark:via-brand-gold/20 dark:to-brand-gold/10 rounded-3xl blur-xl opacity-75" />
 
               {/* Visual Container */}
-              <div className="relative bg-brand-white rounded-3xl border border-brand-border/80 shadow-2xl overflow-hidden p-2 sm:p-3">
+              <div className="relative bg-brand-white dark:bg-neutral-900 rounded-3xl border border-brand-border/80 dark:border-neutral-800 shadow-2xl overflow-hidden p-2 sm:p-3">
                 {/* 3D Illustration Graphic (3D Laptop, Rocket, Meta symbols, fluid gold waves) */}
                 <img
                   src="/images/hero-visual-3d.png"
@@ -111,30 +111,30 @@ export default function Hero({ onConsultationClick }) {
                 />
 
                 {/* Floating Metric Badge 1 (Top Left) */}
-                <div className="absolute top-6 left-6 bg-brand-white/95 backdrop-blur-md rounded-2xl p-3 border border-brand-gold/40 shadow-lg hidden sm:flex items-center gap-3 animate-float-slow">
+                <div className="absolute top-6 left-6 bg-brand-white/95 dark:bg-neutral-900/95 backdrop-blur-md rounded-2xl p-3 border border-brand-gold/40 shadow-lg hidden sm:flex items-center gap-3 animate-float-slow">
                   <div className="w-9 h-9 rounded-xl bg-gold-gradient flex items-center justify-center text-brand-black font-bold">
                     <TrendingUp className="w-5 h-5" />
                   </div>
                   <div>
-                    <span className="text-[10px] uppercase font-bold text-brand-charcoal block">
+                    <span className="text-[10px] uppercase font-bold text-brand-charcoal dark:text-neutral-400 block">
                       Targeted Performance
                     </span>
-                    <span className="text-sm font-extrabold text-brand-black">
+                    <span className="text-sm font-extrabold text-brand-black dark:text-white">
                       4.8X ROAS Potential
                     </span>
                   </div>
                 </div>
 
                 {/* Floating Metric Badge 2 (Bottom Right) */}
-                <div className="absolute bottom-6 right-6 bg-brand-white/95 backdrop-blur-md rounded-2xl p-3 border border-brand-gold/40 shadow-lg hidden sm:flex items-center gap-3">
-                  <div className="w-9 h-9 rounded-xl bg-brand-ivory border border-brand-gold/40 flex items-center justify-center text-brand-gold">
+                <div className="absolute bottom-6 right-6 bg-brand-white/95 dark:bg-neutral-900/95 backdrop-blur-md rounded-2xl p-3 border border-brand-gold/40 shadow-lg hidden sm:flex items-center gap-3">
+                  <div className="w-9 h-9 rounded-xl bg-brand-ivory dark:bg-neutral-800 border border-brand-gold/40 flex items-center justify-center text-brand-gold">
                     <Video className="w-5 h-5" />
                   </div>
                   <div>
-                    <span className="text-[10px] uppercase font-bold text-brand-charcoal block">
+                    <span className="text-[10px] uppercase font-bold text-brand-charcoal dark:text-neutral-400 block">
                       Creative Innovation
                     </span>
-                    <span className="text-sm font-extrabold text-brand-black">
+                    <span className="text-sm font-extrabold text-brand-black dark:text-white">
                       AI Video Ads
                     </span>
                   </div>
@@ -142,12 +142,12 @@ export default function Hero({ onConsultationClick }) {
               </div>
 
               {/* Tagline Card Below Visual on Mobile */}
-              <div className="mt-4 p-3 rounded-2xl bg-brand-ivory border border-brand-gold/30 flex items-center justify-between text-xs sm:text-sm text-brand-black">
+              <div className="mt-4 p-3 rounded-2xl bg-brand-ivory dark:bg-neutral-850 border border-brand-gold/30 dark:border-brand-gold/40 flex items-center justify-between text-xs sm:text-sm text-brand-black dark:text-white">
                 <span className="font-bold flex items-center gap-1.5">
                   <Sparkles className="w-4 h-4 text-brand-gold" />
                   Your Growth. Our Click.
                 </span>
-                <span className="text-brand-charcoal font-medium">VelClick Agency</span>
+                <span className="text-brand-charcoal dark:text-neutral-400 font-medium">VelClick Agency</span>
               </div>
             </div>
           </div>

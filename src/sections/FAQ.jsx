@@ -3,13 +3,12 @@ import SectionHeading from '../components/SectionHeading';
 import FAQAccordion from '../components/FAQAccordion';
 import { faqs } from '../data/faq';
 import { MessageCircle } from 'lucide-react';
-import Button from '../components/Button';
 
 export default function FAQ() {
   return (
     <section
       id="faq"
-      className="bg-brand-white py-20 sm:py-28 relative overflow-hidden border-t border-neutral-100"
+      className="bg-brand-white dark:bg-brand-dark py-20 sm:py-28 relative overflow-hidden border-t border-neutral-100 dark:border-neutral-800 transition-colors duration-300"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading
@@ -24,11 +23,11 @@ export default function FAQ() {
         <FAQAccordion items={faqs} />
 
         {/* Have more questions banner */}
-        <div className="mt-14 max-w-xl mx-auto text-center p-6 rounded-3xl bg-brand-ivory border border-brand-gold/30">
-          <h4 className="text-base font-bold text-brand-black mb-1">
+        <div className="mt-14 max-w-xl mx-auto text-center p-6 rounded-3xl bg-brand-ivory dark:bg-brand-dark-card border border-brand-gold/30 dark:border-brand-gold/40">
+          <h4 className="text-base font-bold text-brand-black dark:text-white mb-1">
             Still have questions?
           </h4>
-          <p className="text-xs sm:text-sm text-brand-charcoal mb-4">
+          <p className="text-xs sm:text-sm text-brand-charcoal dark:text-neutral-300 mb-4">
             We are always here to help. Reach out directly via WhatsApp for instant answers.
           </p>
           <a

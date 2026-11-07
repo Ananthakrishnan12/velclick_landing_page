@@ -61,3 +61,4 @@ export const pricingPlans = [
     bestFor: "High-growth enterprises, multi-location businesses & institutions",
   },
 ];
+

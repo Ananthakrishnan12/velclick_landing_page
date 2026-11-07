@@ -15,21 +15,21 @@ export default function ProcessStep({ step, index, total }) {
       )}
 
       {/* Numbered Gold Indicator */}
-      <div className="relative z-10 w-18 h-18 rounded-2xl bg-brand-white border-2 border-brand-gold shadow-gold-sm group-hover:shadow-gold-md group-hover:scale-105 transition-all duration-300 flex flex-col items-center justify-center p-2 mb-6">
+      <div className="relative z-10 w-18 h-18 rounded-2xl bg-brand-white dark:bg-brand-dark-card border-2 border-brand-gold shadow-gold-sm group-hover:shadow-gold-md group-hover:scale-105 transition-all duration-300 flex flex-col items-center justify-center p-2 mb-6">
         <span className="text-xs font-bold text-brand-gold tracking-wider">
           {step.number}
         </span>
-        <div className="text-brand-black group-hover:text-brand-gold transition-colors mt-0.5">
+        <div className="text-brand-black dark:text-neutral-200 group-hover:text-brand-gold transition-colors mt-0.5">
           <Icon className="w-5 h-5" />
         </div>
       </div>
 
       {/* Step Content */}
       <div className="max-w-xs">
-        <h3 className="text-lg sm:text-xl font-bold text-brand-black mb-2 group-hover:text-brand-gold transition-colors">
+        <h3 className="text-lg sm:text-xl font-bold text-brand-black dark:text-brand-white mb-2 group-hover:text-brand-gold transition-colors">
           {step.title}
         </h3>
-        <p className="text-xs sm:text-sm text-brand-charcoal leading-relaxed">
+        <p className="text-xs sm:text-sm text-brand-charcoal dark:text-neutral-300 leading-relaxed">
           {step.description}
         </p>
       </div>

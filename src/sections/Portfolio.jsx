@@ -29,7 +29,7 @@ export default function Portfolio({ onSelectProject }) {
   return (
     <section
       id="portfolio"
-      className="bg-brand-white py-20 sm:py-28 relative overflow-hidden border-t border-neutral-100"
+      className="bg-brand-white dark:bg-brand-dark py-20 sm:py-28 relative overflow-hidden border-t border-neutral-100 dark:border-neutral-800 transition-colors duration-300"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading
@@ -51,8 +51,8 @@ export default function Portfolio({ onSelectProject }) {
                 onClick={() => setActiveCategory(category)}
                 className={`px-4 py-2 rounded-full text-xs sm:text-sm font-semibold whitespace-nowrap transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-brand-gold ${
                   isActive
-                    ? 'bg-brand-black text-brand-white shadow-md border border-brand-gold/60'
-                    : 'bg-brand-ivory text-brand-charcoal hover:text-brand-gold hover:bg-brand-ivory/80 border border-brand-border/60'
+                    ? 'bg-brand-black dark:bg-neutral-800 text-brand-white dark:text-brand-white shadow-md border border-brand-gold/60 dark:border-brand-gold'
+                    : 'bg-brand-ivory dark:bg-neutral-900 text-brand-charcoal dark:text-neutral-400 hover:text-brand-gold hover:bg-brand-ivory/80 dark:hover:bg-neutral-800 border border-brand-border/60 dark:border-neutral-800'
                 }`}
               >
                 {category}
@@ -73,11 +73,11 @@ export default function Portfolio({ onSelectProject }) {
         </div>
 
         {/* Footer Note */}
-        <div className="mt-12 text-center text-xs text-neutral-400">
+        <div className="mt-12 text-center text-xs text-neutral-400 dark:text-neutral-500">
           Showing {filteredProjects.length} demonstration projects. Need a bespoke design or campaign for your business?{' '}
           <a
             href="#contact"
-            className="text-brand-gold font-semibold underline hover:text-brand-black transition-colors"
+            className="text-brand-gold dark:text-brand-light-gold font-semibold underline hover:text-brand-black dark:hover:text-white transition-colors"
           >
             Request a personalized sample
           </a>

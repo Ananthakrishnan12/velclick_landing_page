@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 export default {
+  darkMode: 'class',
   content: [
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
@@ -16,6 +17,10 @@ export default {
         'brand-muted': '#6B7280',
         'brand-border': '#EAE4D5',
         'brand-card': '#FFFFFF',
+        'brand-dark': '#0B0B0B',
+        'brand-dark-surface': '#141414',
+        'brand-dark-card': '#1B1B1B',
+        'brand-dark-border': '#282828',
       },
       backgroundImage: {
         'gold-gradient': 'linear-gradient(100deg, #A97819, #F5D98B, #C18A25)',
@@ -23,6 +28,7 @@ export default {
         'gold-soft-gradient': 'linear-gradient(135deg, rgba(214,165,54,0.12) 0%, rgba(245,217,139,0.06) 100%)',
         'ivory-gradient': 'linear-gradient(180deg, #FFFFFF 0%, #F5F1E8 100%)',
         'hero-glow': 'radial-gradient(circle at 75% 30%, rgba(232, 200, 117, 0.25) 0%, rgba(255, 255, 255, 0) 65%)',
+        'hero-glow-dark': 'radial-gradient(circle at 75% 30%, rgba(214, 165, 54, 0.15) 0%, rgba(11, 11, 11, 0) 65%)',
       },
       boxShadow: {
         'gold-sm': '0 2px 10px rgba(214, 165, 54, 0.15)',
@@ -30,6 +36,8 @@ export default {
         'gold-lg': '0 14px 40px rgba(214, 165, 54, 0.28)',
         'card-soft': '0 10px 30px -5px rgba(17, 17, 17, 0.05), 0 4px 12px -2px rgba(17, 17, 17, 0.025)',
         'card-hover': '0 20px 40px -10px rgba(214, 165, 54, 0.18), 0 8px 20px -4px rgba(17, 17, 17, 0.06)',
+        'dark-card-soft': '0 10px 30px -5px rgba(0, 0, 0, 0.5), 0 4px 12px -2px rgba(0, 0, 0, 0.3)',
+        'dark-card-hover': '0 20px 40px -10px rgba(214, 165, 54, 0.25), 0 8px 20px -4px rgba(0, 0, 0, 0.6)',
       },
       fontFamily: {
         sans: ['Plus Jakarta Sans', 'Inter', 'system-ui', '-apple-system', 'sans-serif'],

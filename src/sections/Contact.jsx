@@ -4,18 +4,16 @@ import {
   Send,
   MessageCircle,
   Mail,
-  Phone,
   MapPin,
   CheckCircle2,
   AlertCircle,
   Clock,
-  Sparkles,
 } from 'lucide-react';
 import SectionHeading from '../components/SectionHeading';
 import Button from '../components/Button';
 
 export default function Contact({ initialService = '', initialPlan = null }) {
-  const [submissionStatus, setSubmissionStatus] = useState(null); // null | 'whatsapp_redirect' | 'sent' | 'error'
+  const [submissionStatus, setSubmissionStatus] = useState(null);
   const [preparedEnquiry, setPreparedEnquiry] = useState(null);
 
   const {
@@ -35,7 +33,6 @@ export default function Contact({ initialService = '', initialPlan = null }) {
     },
   });
 
-  // Keep synced if parent changes initialService
   React.useEffect(() => {
     if (initialService) {
       const serviceMapping = {
@@ -59,7 +56,6 @@ export default function Contact({ initialService = '', initialPlan = null }) {
 
   const onSubmit = async (data) => {
     try {
-      // Format details for direct WhatsApp delivery
       const formattedMessage =
         `*New Enquiry - VelClick Agency*\n\n` +
         `*Name:* ${data.name}\n` +
@@ -80,8 +76,6 @@ export default function Contact({ initialService = '', initialPlan = null }) {
       });
 
       setSubmissionStatus('ready_to_send');
-
-      // Seamlessly open WhatsApp window
       window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
     } catch (err) {
       setSubmissionStatus('error');
@@ -91,11 +85,11 @@ export default function Contact({ initialService = '', initialPlan = null }) {
   return (
     <section
       id="contact"
-      className="bg-brand-white py-20 sm:py-28 relative overflow-hidden"
+      className="bg-brand-white dark:bg-brand-dark py-20 sm:py-28 relative overflow-hidden transition-colors duration-300"
     >
       {/* Background Decorative Gold Accents */}
-      <div className="absolute top-0 left-1/4 w-96 h-96 bg-brand-gold/5 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-10 right-0 w-80 h-80 bg-brand-light-gold/15 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-0 left-1/4 w-96 h-96 bg-brand-gold/5 dark:bg-brand-gold/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-10 right-0 w-80 h-80 bg-brand-light-gold/15 dark:bg-brand-gold/10 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <SectionHeading
@@ -110,15 +104,15 @@ export default function Contact({ initialService = '', initialPlan = null }) {
           
           {/* Left Column: Direct Contact Info & Working Channels */}
           <div className="lg:col-span-5 space-y-6">
-            <div className="bg-brand-ivory rounded-3xl p-7 sm:p-9 border border-brand-gold/30 shadow-card-soft space-y-7">
+            <div className="bg-brand-ivory dark:bg-brand-dark-card rounded-3xl p-7 sm:p-9 border border-brand-gold/30 dark:border-neutral-800 shadow-card-soft dark:shadow-dark-card-soft space-y-7">
               <div>
                 <span className="text-xs font-bold uppercase tracking-wider text-brand-gold">
                   Direct Inquiries
                 </span>
-                <h3 className="text-xl sm:text-2xl font-bold text-brand-black mt-1">
+                <h3 className="text-xl sm:text-2xl font-bold text-brand-black dark:text-white mt-1">
                   We are ready to assist your growth.
                 </h3>
-                <p className="text-xs sm:text-sm text-brand-charcoal mt-2 leading-relaxed">
+                <p className="text-xs sm:text-sm text-brand-charcoal dark:text-neutral-300 mt-2 leading-relaxed">
                   Connect with our strategy team directly for prompt responses, tailored proposals, and free marketing consultations.
                 </p>
               </div>
@@ -130,16 +124,16 @@ export default function Contact({ initialService = '', initialPlan = null }) {
                   href="https://wa.me/916379553564"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-4 p-4 rounded-2xl bg-brand-white border border-brand-border/80 hover:border-brand-gold transition-all shadow-xs group"
+                  className="flex items-center gap-4 p-4 rounded-2xl bg-brand-white dark:bg-neutral-850 border border-brand-border/80 dark:border-neutral-750 hover:border-brand-gold dark:hover:border-brand-gold transition-all shadow-xs group"
                 >
-                  <div className="w-11 h-11 rounded-xl bg-emerald-50 border border-emerald-200 flex items-center justify-center text-emerald-600 shrink-0 group-hover:scale-105 transition-transform">
+                  <div className="w-11 h-11 rounded-xl bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800/60 flex items-center justify-center text-emerald-600 dark:text-emerald-400 shrink-0 group-hover:scale-105 transition-transform">
                     <MessageCircle className="w-5 h-5" />
                   </div>
                   <div>
-                    <span className="text-[11px] font-semibold text-neutral-400 uppercase tracking-wider block">
+                    <span className="text-[11px] font-semibold text-neutral-400 dark:text-neutral-500 uppercase tracking-wider block">
                       WhatsApp / Phone
                     </span>
-                    <span className="text-sm sm:text-base font-bold text-brand-black group-hover:text-brand-gold transition-colors">
+                    <span className="text-sm sm:text-base font-bold text-brand-black dark:text-white group-hover:text-brand-gold transition-colors">
                       +91 63795 53564
                     </span>
                   </div>
@@ -148,31 +142,31 @@ export default function Contact({ initialService = '', initialPlan = null }) {
                 {/* Email */}
                 <a
                   href="mailto:velclickagency@gmail.com"
-                  className="flex items-center gap-4 p-4 rounded-2xl bg-brand-white border border-brand-border/80 hover:border-brand-gold transition-all shadow-xs group"
+                  className="flex items-center gap-4 p-4 rounded-2xl bg-brand-white dark:bg-neutral-850 border border-brand-border/80 dark:border-neutral-750 hover:border-brand-gold dark:hover:border-brand-gold transition-all shadow-xs group"
                 >
-                  <div className="w-11 h-11 rounded-xl bg-brand-ivory border border-brand-gold/40 flex items-center justify-center text-brand-gold shrink-0 group-hover:scale-105 transition-transform">
+                  <div className="w-11 h-11 rounded-xl bg-brand-ivory dark:bg-neutral-800 border border-brand-gold/40 dark:border-brand-gold/40 flex items-center justify-center text-brand-gold shrink-0 group-hover:scale-105 transition-transform">
                     <Mail className="w-5 h-5" />
                   </div>
                   <div>
-                    <span className="text-[11px] font-semibold text-neutral-400 uppercase tracking-wider block">
+                    <span className="text-[11px] font-semibold text-neutral-400 dark:text-neutral-500 uppercase tracking-wider block">
                       Email Address
                     </span>
-                    <span className="text-sm sm:text-base font-bold text-brand-black group-hover:text-brand-gold transition-colors break-all">
+                    <span className="text-sm sm:text-base font-bold text-brand-black dark:text-white group-hover:text-brand-gold transition-colors break-all">
                       velclickagency@gmail.com
                     </span>
                   </div>
                 </a>
 
                 {/* Location */}
-                <div className="flex items-center gap-4 p-4 rounded-2xl bg-brand-white border border-brand-border/80 shadow-xs">
-                  <div className="w-11 h-11 rounded-xl bg-amber-50 border border-amber-200 flex items-center justify-center text-brand-gold shrink-0">
+                <div className="flex items-center gap-4 p-4 rounded-2xl bg-brand-white dark:bg-neutral-850 border border-brand-border/80 dark:border-neutral-750 shadow-xs">
+                  <div className="w-11 h-11 rounded-xl bg-amber-50 dark:bg-neutral-800 border border-amber-200 dark:border-neutral-700 flex items-center justify-center text-brand-gold shrink-0">
                     <MapPin className="w-5 h-5" />
                   </div>
                   <div>
-                    <span className="text-[11px] font-semibold text-neutral-400 uppercase tracking-wider block">
+                    <span className="text-[11px] font-semibold text-neutral-400 dark:text-neutral-500 uppercase tracking-wider block">
                       Agency Headquarters
                     </span>
-                    <span className="text-sm font-bold text-brand-black">
+                    <span className="text-sm font-bold text-brand-black dark:text-white">
                       Chennai, Tamil Nadu, India
                     </span>
                   </div>
@@ -180,7 +174,7 @@ export default function Contact({ initialService = '', initialPlan = null }) {
               </div>
 
               {/* Working Hours & SLA */}
-              <div className="p-4 rounded-2xl bg-brand-white/80 border border-brand-gold/20 flex items-center gap-3 text-xs text-brand-charcoal">
+              <div className="p-4 rounded-2xl bg-brand-white/80 dark:bg-neutral-850/80 border border-brand-gold/20 dark:border-neutral-750 flex items-center gap-3 text-xs text-brand-charcoal dark:text-neutral-300">
                 <Clock className="w-4 h-4 text-brand-gold shrink-0" />
                 <span>Rapid response within 2 hours during business hours (Mon – Sat).</span>
               </div>
@@ -189,21 +183,21 @@ export default function Contact({ initialService = '', initialPlan = null }) {
 
           {/* Right Column: Contact Form */}
           <div className="lg:col-span-7">
-            <div className="bg-brand-white rounded-3xl p-7 sm:p-9 border border-brand-border shadow-card-soft">
+            <div className="bg-brand-white dark:bg-brand-dark-card rounded-3xl p-7 sm:p-9 border border-brand-border dark:border-neutral-800 shadow-card-soft dark:shadow-dark-card-soft">
               <div className="mb-6">
-                <h3 className="text-xl sm:text-2xl font-bold text-brand-black">
+                <h3 className="text-xl sm:text-2xl font-bold text-brand-black dark:text-white">
                   Send Your Project Enquiry
                 </h3>
-                <p className="text-xs sm:text-sm text-brand-charcoal mt-1">
+                <p className="text-xs sm:text-sm text-brand-charcoal dark:text-neutral-300 mt-1">
                   Fill in your details below and our team will get back to you with a tailored roadmap.
                 </p>
               </div>
 
               {/* Status Banner when enquiry prepared */}
               {submissionStatus === 'ready_to_send' && preparedEnquiry && (
-                <div className="mb-6 p-4 rounded-2xl bg-emerald-50 border border-emerald-300 text-xs text-emerald-900 space-y-2">
-                  <div className="flex items-center gap-2 font-bold text-sm text-emerald-800">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-600" />
+                <div className="mb-6 p-4 rounded-2xl bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-300 dark:border-emerald-700/60 text-xs text-emerald-900 dark:text-emerald-200 space-y-2">
+                  <div className="flex items-center gap-2 font-bold text-sm text-emerald-800 dark:text-emerald-300">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
                     <span>Enquiry Ready to Dispatch!</span>
                   </div>
                   <p>
@@ -225,7 +219,7 @@ export default function Contact({ initialService = '', initialPlan = null }) {
                         reset();
                         setSubmissionStatus(null);
                       }}
-                      className="px-3 py-2 rounded-full bg-white text-emerald-900 border border-emerald-300 hover:bg-emerald-100 font-medium"
+                      className="px-3 py-2 rounded-full bg-white dark:bg-neutral-800 text-emerald-900 dark:text-emerald-200 border border-emerald-300 dark:border-emerald-700 hover:bg-emerald-100 dark:hover:bg-neutral-700 font-medium"
                     >
                       Reset Form
                     </button>
@@ -237,14 +231,16 @@ export default function Contact({ initialService = '', initialPlan = null }) {
                 {/* Row 1: Name and Business Name */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-xs font-bold uppercase tracking-wider text-brand-black mb-1.5">
+                    <label className="block text-xs font-bold uppercase tracking-wider text-brand-black dark:text-neutral-200 mb-1.5">
                       Your Full Name <span className="text-red-500">*</span>
                     </label>
                     <input
                       type="text"
                       placeholder="e.g. Rahul Sharma"
-                      className={`w-full px-4 py-3 rounded-xl border text-sm text-brand-black placeholder:text-neutral-400 focus:outline-none focus:ring-2 focus:ring-brand-gold transition-all ${
-                        errors.name ? 'border-red-400 bg-red-50/30' : 'border-neutral-200 bg-brand-white'
+                      className={`w-full px-4 py-3 rounded-xl border text-sm text-brand-black dark:text-white placeholder:text-neutral-400 dark:placeholder:text-neutral-500 focus:outline-none focus:ring-2 focus:ring-brand-gold transition-all ${
+                        errors.name
+                          ? 'border-red-400 bg-red-50/30 dark:bg-red-950/20'
+                          : 'border-neutral-200 dark:border-neutral-750 bg-brand-white dark:bg-neutral-900'
                       }`}
                       {...register('name', { required: 'Please enter your full name.' })}
                     />
@@ -256,14 +252,16 @@ export default function Contact({ initialService = '', initialPlan = null }) {
                   </div>
 
                   <div>
-                    <label className="block text-xs font-bold uppercase tracking-wider text-brand-black mb-1.5">
+                    <label className="block text-xs font-bold uppercase tracking-wider text-brand-black dark:text-neutral-200 mb-1.5">
                       Business / Company Name <span className="text-red-500">*</span>
                     </label>
                     <input
                       type="text"
                       placeholder="e.g. Apex Health Clinic"
-                      className={`w-full px-4 py-3 rounded-xl border text-sm text-brand-black placeholder:text-neutral-400 focus:outline-none focus:ring-2 focus:ring-brand-gold transition-all ${
-                        errors.businessName ? 'border-red-400 bg-red-50/30' : 'border-neutral-200 bg-brand-white'
+                      className={`w-full px-4 py-3 rounded-xl border text-sm text-brand-black dark:text-white placeholder:text-neutral-400 dark:placeholder:text-neutral-500 focus:outline-none focus:ring-2 focus:ring-brand-gold transition-all ${
+                        errors.businessName
+                          ? 'border-red-400 bg-red-50/30 dark:bg-red-950/20'
+                          : 'border-neutral-200 dark:border-neutral-750 bg-brand-white dark:bg-neutral-900'
                       }`}
                       {...register('businessName', { required: 'Please enter your business name.' })}
                     />
@@ -278,14 +276,16 @@ export default function Contact({ initialService = '', initialPlan = null }) {
                 {/* Row 2: Email and Phone */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-xs font-bold uppercase tracking-wider text-brand-black mb-1.5">
+                    <label className="block text-xs font-bold uppercase tracking-wider text-brand-black dark:text-neutral-200 mb-1.5">
                       Email Address <span className="text-red-500">*</span>
                     </label>
                     <input
                       type="email"
                       placeholder="rahul@company.com"
-                      className={`w-full px-4 py-3 rounded-xl border text-sm text-brand-black placeholder:text-neutral-400 focus:outline-none focus:ring-2 focus:ring-brand-gold transition-all ${
-                        errors.email ? 'border-red-400 bg-red-50/30' : 'border-neutral-200 bg-brand-white'
+                      className={`w-full px-4 py-3 rounded-xl border text-sm text-brand-black dark:text-white placeholder:text-neutral-400 dark:placeholder:text-neutral-500 focus:outline-none focus:ring-2 focus:ring-brand-gold transition-all ${
+                        errors.email
+                          ? 'border-red-400 bg-red-50/30 dark:bg-red-950/20'
+                          : 'border-neutral-200 dark:border-neutral-750 bg-brand-white dark:bg-neutral-900'
                       }`}
                       {...register('email', {
                         required: 'Please enter your email address.',
@@ -303,14 +303,16 @@ export default function Contact({ initialService = '', initialPlan = null }) {
                   </div>
 
                   <div>
-                    <label className="block text-xs font-bold uppercase tracking-wider text-brand-black mb-1.5">
+                    <label className="block text-xs font-bold uppercase tracking-wider text-brand-black dark:text-neutral-200 mb-1.5">
                       Phone / WhatsApp Number <span className="text-red-500">*</span>
                     </label>
                     <input
                       type="tel"
                       placeholder="+91 98765 43210"
-                      className={`w-full px-4 py-3 rounded-xl border text-sm text-brand-black placeholder:text-neutral-400 focus:outline-none focus:ring-2 focus:ring-brand-gold transition-all ${
-                        errors.phone ? 'border-red-400 bg-red-50/30' : 'border-neutral-200 bg-brand-white'
+                      className={`w-full px-4 py-3 rounded-xl border text-sm text-brand-black dark:text-white placeholder:text-neutral-400 dark:placeholder:text-neutral-500 focus:outline-none focus:ring-2 focus:ring-brand-gold transition-all ${
+                        errors.phone
+                          ? 'border-red-400 bg-red-50/30 dark:bg-red-950/20'
+                          : 'border-neutral-200 dark:border-neutral-750 bg-brand-white dark:bg-neutral-900'
                       }`}
                       {...register('phone', {
                         required: 'Please enter your phone number.',
@@ -330,11 +332,11 @@ export default function Contact({ initialService = '', initialPlan = null }) {
 
                 {/* Service Required */}
                 <div>
-                  <label className="block text-xs font-bold uppercase tracking-wider text-brand-black mb-1.5">
+                  <label className="block text-xs font-bold uppercase tracking-wider text-brand-black dark:text-neutral-200 mb-1.5">
                     Service Required <span className="text-red-500">*</span>
                   </label>
                   <select
-                    className="w-full px-4 py-3 rounded-xl border border-neutral-200 bg-brand-white text-sm text-brand-black focus:outline-none focus:ring-2 focus:ring-brand-gold transition-all"
+                    className="w-full px-4 py-3 rounded-xl border border-neutral-200 dark:border-neutral-750 bg-brand-white dark:bg-neutral-900 text-sm text-brand-black dark:text-white focus:outline-none focus:ring-2 focus:ring-brand-gold transition-all"
                     {...register('serviceRequired', { required: 'Please select a service.' })}
                   >
                     <option value="AI Video Creation">AI Video Creation</option>
@@ -347,14 +349,16 @@ export default function Contact({ initialService = '', initialPlan = null }) {
 
                 {/* Project Details */}
                 <div>
-                  <label className="block text-xs font-bold uppercase tracking-wider text-brand-black mb-1.5">
+                  <label className="block text-xs font-bold uppercase tracking-wider text-brand-black dark:text-neutral-200 mb-1.5">
                     Project Details & Goals <span className="text-red-500">*</span>
                   </label>
                   <textarea
                     rows={4}
                     placeholder="Tell us about your target audience, current advertising, budget scale, or website requirements..."
-                    className={`w-full px-4 py-3 rounded-xl border text-sm text-brand-black placeholder:text-neutral-400 focus:outline-none focus:ring-2 focus:ring-brand-gold transition-all resize-y ${
-                      errors.projectDetails ? 'border-red-400 bg-red-50/30' : 'border-neutral-200 bg-brand-white'
+                    className={`w-full px-4 py-3 rounded-xl border text-sm text-brand-black dark:text-white placeholder:text-neutral-400 dark:placeholder:text-neutral-500 focus:outline-none focus:ring-2 focus:ring-brand-gold transition-all resize-y ${
+                      errors.projectDetails
+                        ? 'border-red-400 bg-red-50/30 dark:bg-red-950/20'
+                        : 'border-neutral-200 dark:border-neutral-750 bg-brand-white dark:bg-neutral-900'
                     }`}
                     {...register('projectDetails', {
                       required: 'Please provide a short description of your project.',
@@ -386,13 +390,13 @@ export default function Contact({ initialService = '', initialPlan = null }) {
                 </div>
 
                 {/* Direct Alternative */}
-                <div className="pt-3 text-center text-xs text-neutral-400">
+                <div className="pt-3 text-center text-xs text-neutral-400 dark:text-neutral-500">
                   Prefer instant messaging?{' '}
                   <a
                     href="https://wa.me/916379553564"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-emerald-600 font-bold hover:underline inline-flex items-center gap-1"
+                    className="text-emerald-600 dark:text-emerald-400 font-bold hover:underline inline-flex items-center gap-1"
                   >
                     <MessageCircle className="w-3.5 h-3.5 inline" />
                     <span>Chat on WhatsApp (+91 63795 53564)</span>

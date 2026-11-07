@@ -161,3 +161,4 @@ npx wrangler pages deploy dist --project-name=velclick-agency
 
 &copy; 2026 **VelClick Agency**. All Rights Reserved.  
 *Your Growth. Our Click.*
+
