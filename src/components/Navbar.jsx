@@ -22,7 +22,7 @@ export default function Navbar({ theme, toggleTheme }) {
       setScrolled(window.scrollY > 20);
 
       const sections = ['home', 'about', 'services', 'portfolio', 'contact'];
-      const scrollPosition = window.scrollY + 120;
+      const scrollPosition = window.scrollY + 140;
 
       for (let i = sections.length - 1; i >= 0; i--) {
         const section = document.getElementById(sections[i]);
@@ -65,26 +65,38 @@ export default function Navbar({ theme, toggleTheme }) {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? 'bg-brand-white/95 dark:bg-brand-dark/95 backdrop-blur-md shadow-sm dark:shadow-neutral-950/50 border-b border-brand-border dark:border-neutral-800 py-2.5'
-          : 'bg-brand-white/90 dark:bg-brand-dark/90 backdrop-blur-sm border-b border-neutral-100 dark:border-neutral-800 py-3.5'
+          ? 'bg-brand-white/95 dark:bg-brand-dark/95 backdrop-blur-md shadow-sm dark:shadow-neutral-950/50 border-b border-brand-border dark:border-neutral-800 py-2 sm:py-2.5'
+          : 'bg-brand-white/90 dark:bg-brand-dark/90 backdrop-blur-sm border-b border-neutral-100 dark:border-neutral-800 py-3 sm:py-3.5'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between">
-          {/* Brand Logo - Preserving original logo & aspect ratio */}
+        <div className="flex items-center justify-between gap-4">
+          
+          {/* Brand Logo & Name - Large, prominent, and clearly visible */}
           <a
             href="#home"
             onClick={(e) => handleLinkClick(e, '#home')}
-            className="flex items-center gap-2 focus:outline-none focus:ring-2 focus:ring-brand-gold rounded-xl transition-all"
+            className="flex items-center gap-3 sm:gap-4 focus:outline-none focus:ring-2 focus:ring-brand-gold rounded-2xl transition-all group shrink-0"
             aria-label="VelClick Agency Home"
           >
-            <div className="dark:bg-white/95 dark:px-2.5 dark:py-1 dark:rounded-xl dark:shadow-md transition-all">
+            {/* Enlarged Original Logo */}
+            <div className="p-1 sm:p-1.5 rounded-2xl dark:bg-white/95 dark:px-3 dark:py-1.5 dark:shadow-md transition-all">
               <img
                 src="/logo-tight.png"
-                alt="VelClick Agency"
-                className="h-9 sm:h-11 md:h-12 w-auto object-contain transition-transform duration-300 hover:scale-[1.02]"
+                alt="VelClick Agency Original Gold Logo"
+                className="h-12 sm:h-14 md:h-16 lg:h-18 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
                 loading="eager"
               />
+            </div>
+
+            {/* Bold Agency Name Typography */}
+            <div className="flex flex-col">
+              <span className="text-xl sm:text-2xl md:text-2.5xl font-black tracking-tight text-brand-black dark:text-white leading-none">
+                VelClick <span className="gold-gradient-text">Agency</span>
+              </span>
+              <span className="text-[10px] sm:text-xs uppercase font-extrabold tracking-widest text-brand-gold mt-1">
+                Digital Marketing
+              </span>
             </div>
           </a>
 
@@ -97,9 +109,9 @@ export default function Navbar({ theme, toggleTheme }) {
                   key={link.name}
                   href={link.href}
                   onClick={(e) => handleLinkClick(e, link.href)}
-                  className={`relative px-3.5 py-2 text-sm font-medium rounded-full transition-all duration-200 ${
+                  className={`relative px-3.5 py-2 text-sm font-semibold rounded-full transition-all duration-200 ${
                     isActive
-                      ? 'text-brand-black dark:text-brand-white font-semibold'
+                      ? 'text-brand-black dark:text-brand-white font-bold'
                       : 'text-brand-charcoal dark:text-neutral-300 hover:text-brand-gold dark:hover:text-brand-light-gold'
                   }`}
                 >
@@ -113,8 +125,8 @@ export default function Navbar({ theme, toggleTheme }) {
           </nav>
 
           {/* Right Action: Theme Toggle + CTA Button */}
-          <div className="flex items-center gap-2 sm:gap-3">
-            {/* Dark / Light Mode Toggle Button (Top Right in Navbar) */}
+          <div className="flex items-center gap-2 sm:gap-3 shrink-0">
+            {/* Dark / Light Mode Toggle Button */}
             <ThemeToggle theme={theme} toggleTheme={toggleTheme} />
 
             <div className="hidden sm:flex items-center gap-3">
@@ -124,7 +136,7 @@ export default function Navbar({ theme, toggleTheme }) {
                 variant="primary"
                 size="sm"
                 icon={ArrowUpRight}
-                className="font-medium shadow-gold-sm"
+                className="font-bold shadow-gold-sm"
               >
                 Let's Talk
               </Button>
