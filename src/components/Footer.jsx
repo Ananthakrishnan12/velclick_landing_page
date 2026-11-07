@@ -7,7 +7,6 @@ export default function Footer() {
     { name: 'About Us', href: '#about' },
     { name: 'Our Services', href: '#services' },
     { name: 'Portfolio', href: '#portfolio' },
-    { name: 'Pricing Plans', href: '#pricing' },
     { name: 'Contact Us', href: '#contact' },
   ];
 

@@ -8,7 +8,6 @@ import Services from './sections/Services';
 import About from './sections/About';
 import Portfolio from './sections/Portfolio';
 import Process from './sections/Process';
-import Pricing from './sections/Pricing';
 import Testimonials from './sections/Testimonials';
 import FAQ from './sections/FAQ';
 import Contact from './sections/Contact';
@@ -17,18 +16,9 @@ import { useTheme } from './hooks/useTheme';
 export default function App() {
   const { theme, toggleTheme } = useTheme();
   const [selectedService, setSelectedService] = useState('');
-  const [selectedPlan, setSelectedPlan] = useState(null);
 
   const handleSelectService = (serviceId) => {
     setSelectedService(serviceId);
-    const contactSection = document.getElementById('contact');
-    if (contactSection) {
-      contactSection.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
-  const handleSelectPlan = (plan) => {
-    setSelectedPlan(plan);
     const contactSection = document.getElementById('contact');
     if (contactSection) {
       contactSection.scrollIntoView({ behavior: 'smooth' });
@@ -78,23 +68,19 @@ export default function App() {
         {/* Section 7: How We Work (Process Timeline) */}
         <Process />
 
-        {/* Section 8: Pricing Solutions */}
-        <Pricing onSelectPlan={handleSelectPlan} />
-
-        {/* Section 9: Testimonials */}
+        {/* Section 8: Testimonials */}
         <Testimonials />
 
-        {/* Section 10: Frequently Asked Questions */}
+        {/* Section 9: Frequently Asked Questions */}
         <FAQ />
 
-        {/* Section 11: Contact Section */}
+        {/* Section 10: Contact Section */}
         <Contact
           initialService={selectedService}
-          initialPlan={selectedPlan}
         />
       </main>
 
-      {/* Section 12: Premium Black Footer */}
+      {/* Section 11: Premium Black Footer */}
       <Footer />
 
       {/* Floating Interactive WhatsApp Button */}
