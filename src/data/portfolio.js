@@ -3,7 +3,6 @@ export const portfolioCategories = [
   "AI Video Advertisements",
   "Meta Ads Creatives",
   "Portfolio Websites",
-  "Promotional Designs",
 ];
 
 export const portfolioProjects = [
@@ -108,16 +107,5 @@ export const portfolioProjects = [
     description: "Sleek personal branding website designed for entrepreneurs, speakers, and consultants to highlight speaking engagements, press, and advisory roles.",
     deliverables: ["Clean Editorial Layout", "Media & Press Kit Section", "One-click Booking Link", "SEO-optimized markup"],
     tech: ["Web Architecture", "Mobile-First UX", "Semantic HTML"],
-  },
-  {
-    id: 8,
-    title: "Seasonal Festival Promo Ad Set",
-    clientName: "Retail Brand Campaign",
-    category: "Promotional Designs",
-    isVideo: false,
-    tag: "Client Delivered",
-    description: "Set of high-contrast celebratory promotional banners designed with festive motifs, luxury gold accents, and urgency-driven badges.",
-    deliverables: ["Multi-size Digital Banners", "Story Templates", "Offer Stickers", "Brand Consistency Guide"],
-    tech: ["Commercial Design", "Visual Hierarchy", "Digital Creatives"],
   },
 ];

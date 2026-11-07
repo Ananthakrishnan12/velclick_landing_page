@@ -1,12 +1,11 @@
 import React from 'react';
-import { Eye, Play, Sparkles, Video, Target, Layout, Palette } from 'lucide-react';
+import { Eye, Play, Sparkles, Video, Target, Layout } from 'lucide-react';
 import Button from './Button';
 
 const categoryIcons = {
   'AI Video Advertisements': Video,
   'Meta Ads Creatives': Target,
   'Portfolio Websites': Layout,
-  'Promotional Designs': Palette,
 };
 
 export default function PortfolioCard({ project, onViewProject, onPlayVideo }) {
