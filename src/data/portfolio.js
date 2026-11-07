@@ -18,19 +18,18 @@ export const portfolioCategories = [
 export const portfolioProjects = [
   {
     id: 1,
-    title: "AI Product Launch Commercial",
-    clientName: "Zenith Tech Innovations",
+    title: "Diwali Festive Commercial Video",
+    clientName: "VelClick Client Partner",
     category: "AI Video Advertisements",
     isVideo: true,
-    // Working demo MP4 video - replace with your local file: "/videos/zenith-launch.mp4"
-    videoUrl: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
-    duration: "0:15",
+    videoUrl: "/videos/diwali.mp4",
+    duration: "0:30",
     aspectRatio: "16:9",
     thumbnail: "/images/hero-visual-3d.png",
     tag: "Client Delivered",
-    description: "High-definition AI-generated 3D product reveal highlighting dynamic lighting, motion pacing, and cinematic neural voiceover.",
-    deliverables: ["4K AI Visual Synthesis", "Custom Neural Voiceover", "Dynamic Motion Graphics", "16:9 Landscape & 9:16 Reel Export"],
-    tech: ["AI Video Diffusion", "Generative Motion", "Sound Design"],
+    description: "High-impact festive promotional video crafted with vibrant visuals, celebrations, and conversion-focused branding for seasonal campaign engagement.",
+    deliverables: ["4K Video Production", "Festive Sound Design & Audio", "Reels & Feed Formats", "Campaign Hook & CTAs"],
+    tech: ["AI Video Diffusion", "Motion Design", "Commercial Editing"],
   },
   {
     id: 2,
