@@ -15,6 +15,7 @@ import Button from '../components/Button';
 export default function Contact({ initialService = '', initialPlan = null }) {
   const [submissionStatus, setSubmissionStatus] = useState(null);
   const [preparedEnquiry, setPreparedEnquiry] = useState(null);
+  const [errorMessage, setErrorMessage] = useState('');
 
   const {
     register,
@@ -55,29 +56,78 @@ export default function Contact({ initialService = '', initialPlan = null }) {
   }, [initialPlan, setValue]);
 
   const onSubmit = async (data) => {
+    setSubmissionStatus(null);
+    setErrorMessage('');
+
+    const formattedMessage =
+      `*New Enquiry - VelClick Agency*\n\n` +
+      `*Name:* ${data.name}\n` +
+      `*Business:* ${data.businessName}\n` +
+      `*Email:* ${data.email}\n` +
+      `*Phone:* ${data.phone}\n` +
+      `*Service Required:* ${data.serviceRequired}\n` +
+      `*Project Details:* ${data.projectDetails}\n\n` +
+      `_Sent via velclickagency.com_`;
+
+    const whatsappUrl = `https://wa.me/916379553564?text=${encodeURIComponent(
+      formattedMessage
+    )}`;
+
+    const emailSubject = `New Project Enquiry: ${data.serviceRequired} - ${data.businessName}`;
+    const emailBody =
+      `New Enquiry - VelClick Agency\n\n` +
+      `Name: ${data.name}\n` +
+      `Business: ${data.businessName}\n` +
+      `Email: ${data.email}\n` +
+      `Phone: ${data.phone}\n` +
+      `Service Required: ${data.serviceRequired}\n` +
+      `Project Details:\n${data.projectDetails}\n`;
+
+    const mailtoUrl = `mailto:velclickagency@gmail.com?subject=${encodeURIComponent(
+      emailSubject
+    )}&body=${encodeURIComponent(emailBody)}`;
+
+    setPreparedEnquiry({
+      ...data,
+      whatsappUrl,
+      mailtoUrl,
+    });
+
     try {
-      const formattedMessage =
-        `*New Enquiry - VelClick Agency*\n\n` +
-        `*Name:* ${data.name}\n` +
-        `*Business:* ${data.businessName}\n` +
-        `*Email:* ${data.email}\n` +
-        `*Phone:* ${data.phone}\n` +
-        `*Service Required:* ${data.serviceRequired}\n` +
-        `*Project Details:* ${data.projectDetails}\n\n` +
-        `_Sent via velclickagency.com_`;
-
-      const whatsappUrl = `https://wa.me/916379553564?text=${encodeURIComponent(
-        formattedMessage
-      )}`;
-
-      setPreparedEnquiry({
-        ...data,
-        whatsappUrl,
+      const response = await fetch('https://formsubmit.co/ajax/velclickagency@gmail.com', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify({
+          name: data.name,
+          business: data.businessName,
+          email: data.email,
+          phone: data.phone,
+          service: data.serviceRequired,
+          message: data.projectDetails,
+          _replyto: data.email,
+          _subject: emailSubject,
+          _template: 'table',
+          _captcha: 'false',
+        }),
       });
 
-      setSubmissionStatus('ready_to_send');
-      window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+      const result = await response.json().catch(() => ({}));
+      const isSuccess =
+        response.ok && (result.success === true || result.success === 'true');
+
+      if (!isSuccess) {
+        throw new Error(result.message || 'Unable to send email automatically.');
+      }
+
+      setSubmissionStatus('success');
+      reset();
     } catch (err) {
+      setErrorMessage(
+        err?.message || 'Unable to send automatically. Please use Email App or WhatsApp below.'
+      );
       setSubmissionStatus('error');
     }
   };
@@ -193,15 +243,16 @@ export default function Contact({ initialService = '', initialPlan = null }) {
                 </p>
               </div>
 
-              {/* Status Banner when enquiry prepared */}
-              {submissionStatus === 'ready_to_send' && preparedEnquiry && (
+              {/* Status Banner when enquiry sent to Gmail */}
+              {submissionStatus === 'success' && preparedEnquiry && (
                 <div className="mb-6 p-4 rounded-2xl bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-300 dark:border-emerald-700/60 text-xs text-emerald-900 dark:text-emerald-200 space-y-2">
                   <div className="flex items-center gap-2 font-bold text-sm text-emerald-800 dark:text-emerald-300">
                     <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
-                    <span>Enquiry Ready to Dispatch!</span>
+                    <span>Enquiry Sent Successfully!</span>
                   </div>
                   <p>
-                    Your enquiry details have been formatted and directed to our official WhatsApp channel (+91 63795 53564). If your browser blocked popups, please click below:
+                    Thank you, <strong>{preparedEnquiry.name}</strong>. Your project details have been sent directly to{' '}
+                    <span className="font-semibold">velclickagency@gmail.com</span>. Our team will respond within 2 business hours.
                   </p>
                   <div className="pt-2 flex flex-wrap gap-2">
                     <a
@@ -211,18 +262,49 @@ export default function Contact({ initialService = '', initialPlan = null }) {
                       className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-emerald-600 hover:bg-emerald-700 text-white font-semibold shadow-xs"
                     >
                       <MessageCircle className="w-3.5 h-3.5" />
-                      <span>Confirm & Send on WhatsApp</span>
+                      <span>Also Chat on WhatsApp</span>
                     </a>
                     <button
                       type="button"
                       onClick={() => {
-                        reset();
                         setSubmissionStatus(null);
+                        setPreparedEnquiry(null);
                       }}
                       className="px-3 py-2 rounded-full bg-white dark:bg-neutral-800 text-emerald-900 dark:text-emerald-200 border border-emerald-300 dark:border-emerald-700 hover:bg-emerald-100 dark:hover:bg-neutral-700 font-medium"
                     >
-                      Reset Form
+                      Dismiss
                     </button>
+                  </div>
+                </div>
+              )}
+
+              {/* Fallback Banner if automatic email dispatch fails */}
+              {submissionStatus === 'error' && preparedEnquiry && (
+                <div className="mb-6 p-4 rounded-2xl bg-amber-50 dark:bg-amber-950/40 border border-amber-300 dark:border-amber-700/60 text-xs text-amber-950 dark:text-amber-200 space-y-2">
+                  <div className="flex items-center gap-2 font-bold text-sm text-amber-900 dark:text-amber-300">
+                    <AlertCircle className="w-4 h-4 text-amber-600 dark:text-amber-400" />
+                    <span>Could Not Send Automatically</span>
+                  </div>
+                  <p>
+                    Your enquiry could not be dispatched automatically ({errorMessage}). You can send your pre-filled details directly using your email app or WhatsApp:
+                  </p>
+                  <div className="pt-2 flex flex-wrap gap-2">
+                    <a
+                      href={preparedEnquiry.mailtoUrl}
+                      className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-brand-black dark:bg-brand-gold text-white dark:text-brand-black font-semibold shadow-xs hover:opacity-90"
+                    >
+                      <Mail className="w-3.5 h-3.5" />
+                      <span>Send via Email App</span>
+                    </a>
+                    <a
+                      href={preparedEnquiry.whatsappUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-emerald-600 hover:bg-emerald-700 text-white font-semibold shadow-xs"
+                    >
+                      <MessageCircle className="w-3.5 h-3.5" />
+                      <span>Send on WhatsApp</span>
+                    </a>
                   </div>
                 </div>
               )}
@@ -385,7 +467,7 @@ export default function Contact({ initialService = '', initialPlan = null }) {
                     disabled={isSubmitting}
                     className="w-full justify-center shadow-gold-sm"
                   >
-                    {isSubmitting ? 'Preparing Enquiry...' : 'Send Enquiry'}
+                    {isSubmitting ? 'Sending Enquiry...' : 'Send Enquiry'}
                   </Button>
                 </div>
 
