@@ -15,11 +15,17 @@ export default function WhatsAppButton() {
       {showTooltip && (
         <div className="mb-2 bg-brand-white dark:bg-brand-dark-card border border-brand-gold/40 rounded-2xl shadow-xl p-3.5 max-w-xs text-xs animate-in fade-in slide-in-from-bottom-2 duration-200">
           <div className="flex items-center justify-between gap-2 mb-1">
-            <div className="flex items-center gap-1.5 font-bold text-brand-black dark:text-brand-white">
+            <a
+              href={whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1.5 font-bold text-brand-black dark:text-brand-white hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors"
+            >
               <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
               <span>VelClick Agency</span>
-            </div>
+            </a>
             <button
+              type="button"
               onClick={() => setShowTooltip(false)}
               className="text-neutral-400 hover:text-brand-black dark:hover:text-white p-0.5"
               aria-label="Close tooltip"
@@ -27,9 +33,14 @@ export default function WhatsAppButton() {
               <X className="w-3.5 h-3.5" />
             </button>
           </div>
-          <p className="text-brand-charcoal dark:text-neutral-300 text-[11px] leading-relaxed">
+          <a
+            href={whatsappUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block text-brand-charcoal dark:text-neutral-300 text-[11px] leading-relaxed hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors"
+          >
             Need a quick quotation or digital marketing advice? Click to chat with us directly on WhatsApp!
-          </p>
+          </a>
         </div>
       )}
 
