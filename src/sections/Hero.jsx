@@ -103,12 +103,12 @@ export default function Hero({ onConsultationClick }) {
               {/* Visual Card Container - Formatted to Fit Perfectly */}
               <div className="relative bg-brand-white dark:bg-neutral-900 rounded-3xl border border-brand-border/80 dark:border-neutral-800 shadow-2xl overflow-hidden p-3 sm:p-4">
                 
-                {/* 3D Illustration Graphic (Laptop with Ads Dashboard, Launching Rocket, Meta symbols, fluid gold waves) */}
-                <div className="relative overflow-hidden rounded-2xl bg-neutral-50 dark:bg-neutral-950 flex items-center justify-center border border-neutral-100 dark:border-neutral-800">
+                {/* VelClick Agency Promotional Graphic */}
+                <div className="relative overflow-hidden rounded-2xl bg-[#0B0E17] flex items-center justify-center border border-neutral-800/80">
                   <img
-                    src="/images/hero-visual-3d.png"
-                    alt="VelClick Digital Marketing Analytics Dashboard and Rocket Illustration"
-                    className="w-full h-auto object-contain max-h-[360px] sm:max-h-[420px] transition-transform duration-500 hover:scale-[1.02]"
+                    src="/images/hero-agency-banner.jpg"
+                    alt="VelClick Agency - Elevate Your Business Online, Meta Ads and Web Development"
+                    className="w-full h-auto aspect-square object-cover transition-transform duration-500 hover:scale-[1.02]"
                     loading="eager"
                   />
                 </div>
