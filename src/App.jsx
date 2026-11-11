@@ -8,7 +8,6 @@ import Services from './sections/Services';
 import About from './sections/About';
 import Portfolio from './sections/Portfolio';
 import Process from './sections/Process';
-import Testimonials from './sections/Testimonials';
 import FAQ from './sections/FAQ';
 import Contact from './sections/Contact';
 import { useTheme } from './hooks/useTheme';
@@ -68,10 +67,7 @@ export default function App() {
         {/* Section 7: How We Work (Process Timeline) */}
         <Process />
 
-        {/* Section 8: Testimonials */}
-        <Testimonials />
-
-        {/* Section 9: Frequently Asked Questions */}
+        {/* Section 8: Frequently Asked Questions */}
         <FAQ />
 
         {/* Section 10: Contact Section */}
