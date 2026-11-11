@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowRight, Sparkles, TrendingUp, CheckCircle2, Video } from 'lucide-react';
+import { ArrowRight, Sparkles, CheckCircle2 } from 'lucide-react';
 import Button from '../components/Button';
 
 export default function Hero({ onConsultationClick }) {
@@ -111,29 +111,6 @@ export default function Hero({ onConsultationClick }) {
                     className="w-full h-auto aspect-square object-cover transition-transform duration-500 hover:scale-[1.02]"
                     loading="eager"
                   />
-                </div>
-
-                {/* Sub-card Performance Highlights */}
-                <div className="mt-3 grid grid-cols-2 gap-2 text-xs">
-                  <div className="p-2.5 rounded-xl bg-brand-ivory dark:bg-neutral-800 border border-brand-gold/30 flex items-center gap-2">
-                    <div className="w-7 h-7 rounded-lg bg-gold-gradient flex items-center justify-center text-brand-black shrink-0">
-                      <TrendingUp className="w-4 h-4" />
-                    </div>
-                    <div>
-                      <span className="text-[10px] text-brand-charcoal dark:text-neutral-400 block font-medium">ROI Focus</span>
-                      <span className="font-bold text-brand-black dark:text-white">4.8X ROAS</span>
-                    </div>
-                  </div>
-
-                  <div className="p-2.5 rounded-xl bg-brand-ivory dark:bg-neutral-800 border border-brand-gold/30 flex items-center gap-2">
-                    <div className="w-7 h-7 rounded-lg bg-brand-gold/20 text-brand-gold flex items-center justify-center shrink-0">
-                      <Video className="w-4 h-4" />
-                    </div>
-                    <div>
-                      <span className="text-[10px] text-brand-charcoal dark:text-neutral-400 block font-medium">Creatives</span>
-                      <span className="font-bold text-brand-black dark:text-white">AI Video Ads</span>
-                    </div>
-                  </div>
                 </div>
               </div>
 
