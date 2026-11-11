@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowRight, CheckCircle2, ShieldCheck, MapPin, Target } from 'lucide-react';
+import { ArrowRight, CheckCircle2, ShieldCheck, Target } from 'lucide-react';
 import SectionHeading from '../components/SectionHeading';
 import Button from '../components/Button';
 
@@ -86,15 +86,6 @@ export default function About({ onKnowMoreClick }) {
                       </p>
                     </div>
                   </div>
-                </div>
-
-                {/* Location indicator */}
-                <div className="flex items-center justify-between text-xs text-brand-charcoal dark:text-neutral-400 pt-2">
-                  <span className="flex items-center gap-1.5 font-medium">
-                    <MapPin className="w-3.5 h-3.5 text-brand-gold" />
-                    VelClick Agency Head Office
-                  </span>
-                  <span className="text-brand-gold dark:text-brand-light-gold font-bold">Chennai, TN</span>
                 </div>
               </div>
             </div>
