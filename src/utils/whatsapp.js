@@ -6,3 +6,4 @@ export const DEFAULT_WHATSAPP_MESSAGE =
 export const getWhatsAppUrl = (message = DEFAULT_WHATSAPP_MESSAGE) => {
   return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
 };
+
