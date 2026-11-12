@@ -1,5 +1,6 @@
 import React from 'react';
 import { Mail, Phone, MapPin, ArrowUpRight, MessageCircle } from 'lucide-react';
+import { getWhatsAppUrl } from '../utils/whatsapp';
 
 export default function Footer() {
   const quickLinks = [
@@ -107,7 +108,7 @@ export default function Footer() {
             </h3>
             <div className="space-y-3 text-sm text-neutral-400">
               <a
-                href="https://wa.me/916379553564"
+                href={getWhatsAppUrl()}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-start gap-3 text-neutral-300 hover:text-brand-light-gold transition-colors group"

@@ -3,6 +3,7 @@ import SectionHeading from '../components/SectionHeading';
 import FAQAccordion from '../components/FAQAccordion';
 import { faqs } from '../data/faq';
 import { MessageCircle } from 'lucide-react';
+import { getWhatsAppUrl } from '../utils/whatsapp';
 
 export default function FAQ() {
   return (
@@ -31,7 +32,7 @@ export default function FAQ() {
             We are always here to help. Reach out directly via WhatsApp for instant answers.
           </p>
           <a
-            href="https://wa.me/916379553564"
+            href={getWhatsAppUrl()}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-emerald-500 hover:bg-emerald-600 text-brand-white text-xs font-semibold shadow-md transition-all"

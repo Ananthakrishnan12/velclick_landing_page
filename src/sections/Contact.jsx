@@ -11,6 +11,7 @@ import {
 } from 'lucide-react';
 import SectionHeading from '../components/SectionHeading';
 import Button from '../components/Button';
+import { getWhatsAppUrl } from '../utils/whatsapp';
 
 const AGENCY_EMAIL = 'velclickagency@gmail.com';
 const FORMSUBMIT_ENDPOINT = `https://formsubmit.co/ajax/${
@@ -197,7 +198,7 @@ export default function Contact({ initialService = '', initialPlan = null }) {
               <div className="space-y-4">
                 {/* WhatsApp */}
                 <a
-                  href="https://wa.me/916379553564"
+                  href={getWhatsAppUrl()}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-4 p-4 rounded-2xl bg-brand-white dark:bg-neutral-800 border border-brand-border/80 dark:border-neutral-700 hover:border-brand-gold dark:hover:border-brand-gold transition-all shadow-xs group"

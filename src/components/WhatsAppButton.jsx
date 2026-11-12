@@ -1,13 +1,10 @@
 import React, { useState } from 'react';
 import { MessageCircle, X } from 'lucide-react';
+import { getWhatsAppUrl } from '../utils/whatsapp';
 
 export default function WhatsAppButton() {
   const [showTooltip, setShowTooltip] = useState(false);
-  const phoneNumber = '916379553564';
-  const message = encodeURIComponent(
-    'Hello VelClick Agency! I would like to inquire about digital marketing services for my business.'
-  );
-  const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
+  const whatsappUrl = getWhatsAppUrl();
 
   return (
     <div className="fixed bottom-6 right-6 z-40 flex flex-col items-end">

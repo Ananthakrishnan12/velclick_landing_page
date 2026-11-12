@@ -2,6 +2,7 @@ import React from 'react';
 import { ArrowRight, CheckCircle2, ShieldCheck, Target } from 'lucide-react';
 import SectionHeading from '../components/SectionHeading';
 import Button from '../components/Button';
+import { getWhatsAppUrl } from '../utils/whatsapp';
 
 export default function About({ onKnowMoreClick }) {
   const points = [
@@ -144,7 +145,7 @@ export default function About({ onKnowMoreClick }) {
               </Button>
 
               <Button
-                href="https://wa.me/916379553564"
+                href={getWhatsAppUrl()}
                 target="_blank"
                 rel="noopener noreferrer"
                 variant="secondary"
